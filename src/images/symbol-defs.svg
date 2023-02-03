@@ -40,5 +40,10 @@
 <path fill="#4b48db" style="fill: var(--color5, #4b48db)" d="M27.2 16c0 7.069-5.731 12.8-12.8 12.8s-12.8-5.731-12.8-12.8c0-7.069 5.731-12.8 12.8-12.8s12.8 5.731 12.8 12.8z"></path>
 <path fill="none" stroke="#4b48db" style="stroke: var(--color5, #4b48db)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="0.9675" d="M16 0.484h32c8.569 0 15.516 6.947 15.516 15.516s-6.947 15.516-15.516 15.516h-32c-8.569 0-15.516-6.947-15.516-15.516s6.947-15.516 15.516-15.516z"></path>
 </symbol>
+<symbol id="icon-menu" viewBox="0 0 32 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M4 16h24"></path>
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M4 8h24"></path>
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M4 24h24"></path>
+</symbol>
 </defs>
 </svg>

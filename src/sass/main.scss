@@ -1,17 +1,17 @@
+// Utils
+@import './utils/modern-normalize';
+@import './utils/reset';
+@import './utils/variables';
+@import './utils/visully-hidden';
+@import './utils/mixin';
+@import './utils/placeholders';
+@import './utils/container';
+@import './utils/common';
+
 // Components
 @import './components/backdrop';
 @import './components/mobile-menu';
 @import './components/toggle';
-
-// Utils
-@import './utils/common';
-@import './utils/container';
-@import './utils/mixin';
-@import './utils/modern-normalize';
-@import './utils/placeholders';
-@import './utils/reset';
-@import './utils/variables';
-@import './utils/visully-hidden';
 
 // Layouts
 @import './layout/favourite-section';

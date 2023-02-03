@@ -1,0 +1,160 @@
+.logo {
+    @extend %link;
+    @extend %list;
+
+    margin-right: 14px;
+
+    font-size: 24px;
+    font-weight: 700;
+    line-height: calc(33/24);
+}
+
+.header {
+    &__section {
+        padding-top: 24px;
+        padding-bottom: 24px;
+
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__mobile-wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    &__search-form {
+        position: relative;
+
+        display: flex;
+        align-items: center;
+    }
+
+    &__search-form-input {
+        opacity: 0;
+        width: 173px;
+        height: 31px;
+        
+        border: 1px solid $light-theme-primary-font-color;
+        border-radius: 20px;
+        outline: none;
+
+        @media screen and (min-width: 768px) {
+            opacity: 1;
+        }
+    }
+
+    &__search-form-input::placeholder {
+        padding-left: 48px;
+
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+        line-height: calc(21 / 12);
+        letter-spacing: 0.02em;
+        
+        color: $light-theme-primary-font-color;
+        opacity: 0.4;
+    }
+
+    &__search-form-btn {
+        // position: absolute;
+        // left: 12;
+        // transform: translateY(25%);
+
+        width: 20px;
+        height: 20px;
+
+        text-align: center;
+
+        background-color: transparent;
+        border: transparent;
+    }
+
+    &__search-form-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    &__burger-menu-btn {
+        width: 24px;
+        height: 24px;
+
+        margin-left: 14px;
+
+        text-align: center;
+
+        background-color: transparent;
+        border: transparent;
+    }
+
+    &__burger-menu {
+        width: 24px;
+        height: 24px;
+
+        stroke: black;
+    }
+
+    &__theme-text {
+        display: none;
+
+        @media screen and (min-width: 768px) {
+            display: block;
+        }
+    }
+
+    &__theme-sun-icon {
+        display: none;
+
+        @media screen and (min-width: 768px) {
+            display: block;
+        }
+    }
+
+    &__toggle-icon {
+        display: none;
+
+        @media screen and (min-width: 768px) {
+            display: block;
+        }
+    }
+
+    &__theme-moon-icon {
+        display: none;
+
+        @media screen and (min-width: 768px) {
+            display: block;
+        }
+    }
+}
+
+.nav {
+    &__list {
+        @extend %list;
+        display: none;
+
+        @media screen and (min-width: 768px) {
+            display: block;
+        } 
+    }
+
+    // &__item {
+    // }
+
+    &__link {
+        @extend %link;
+    }
+}
+
+.visible {
+    opacity: 1;
+}
+
+.btn-transform {
+    position: absolute;
+    left: 12;
+}
