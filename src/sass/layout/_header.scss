@@ -144,10 +144,12 @@
     }
 
     &__tablet-desktop-toggle-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-
+        display: none;
+        @media screen and (min-width: 768px) {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
         @media screen and (min-width: 1280px) {
             gap: 12px;
         }

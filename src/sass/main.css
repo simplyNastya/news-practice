@@ -255,9 +255,17 @@ body {
 .mobile-menu__item {
   padding-top: 6px;
   padding-bottom: 6px;
+  padding-left: 16px;
   display: flex;
   align-items: center;
   gap: 14px;
+}
+.mobile-menu__btn-page-icon {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  cursor: none;
 }
 .mobile-menu__page-icon {
   width: 32px;
@@ -267,6 +275,11 @@ body {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.375;
+}
+.mobile-menu__page-arrow-icon {
+  margin-left: auto;
+  width: 24px;
+  height: 24px;
 }
 .mobile-menu__wrapper {
   margin-top: 248px;
@@ -298,6 +311,14 @@ body {
   width: 21px;
   height: 21px;
   stroke: #5F6775;
+}
+
+.current-mobile {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.375;
+  background-color: #4440F6;
+  color: #ffffff;
 }
 
 .invisible {
@@ -457,9 +478,14 @@ body {
   stroke: black;
 }
 .header__tablet-desktop-toggle-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .header__tablet-desktop-toggle-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
 }
 @media screen and (min-width: 1280px) {
   .header__tablet-desktop-toggle-wrapper {
