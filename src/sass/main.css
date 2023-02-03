@@ -599,6 +599,20 @@ body {
   background-color: #4440F6;
 }
 
+.desktop-text {
+  margin-left: 111px;
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.3888888889;
+  color: #111321;
+}
+@media screen and (max-width: 1279px) {
+  .desktop-text {
+    display: none;
+  }
+}
+
 .logo {
   font-size: 24px;
   font-weight: 700;

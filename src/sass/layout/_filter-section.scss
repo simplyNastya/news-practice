@@ -367,5 +367,18 @@
             background-color: $accent-color;
         }
     }
+}
 
+.desktop-text {
+    @media screen and (max-width: 1279px) {
+        display: none;
+    }
+
+    margin-left: 111px;
+    
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: calc(25 / 18);
+    color: $light-theme-primary-font-color;
 }
