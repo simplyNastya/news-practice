@@ -12,6 +12,11 @@
         font-size: 32px;
         line-height: calc(44 / 32);
     }
+
+    @media screen and (min-width: 1280px) {
+        font-size: 42px;
+        line-height: calc(57 / 42);
+    }
 }
 
 .header {
@@ -25,11 +30,21 @@
             padding-top: 32px;
             padding-bottom: 30px;
         }
+
+        @media screen and (min-width: 1280px) {
+            padding-top: 28px;
+            padding-bottom: 28px;
+        }
     }
 
     &__container {
         display: flex;
         justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo-nav-wrapper {
+        display: flex;
         align-items: center;
     }
 
@@ -49,6 +64,8 @@
         opacity: 0;
         width: 173px;
         height: 31px;
+
+        padding-left: 48px;
         
         border: 1px solid $light-theme-primary-font-color;
         border-radius: 20px;
@@ -56,12 +73,15 @@
 
         @media screen and (min-width: 768px) {
             opacity: 1;
+            width: 213px;
+        }
+
+        @media screen and (min-width: 1280px) {
+            width: 288px;
         }
     }
 
     &__search-form-input::placeholder {
-        padding-left: 48px;
-
         font-family: 'Poppins', sans-serif;
         font-size: 12px;
         line-height: calc(21 / 12);
@@ -69,6 +89,11 @@
         
         color: $light-theme-primary-font-color;
         opacity: 0.4;
+
+        @media screen and (min-width: 768px) {
+            font-size: 14px;
+            line-height: calc(24 / 14);
+        }
     }
 
     &__search-form-btn {
@@ -82,13 +107,19 @@
 
         @media screen and (min-width: 768px) {
             position: absolute;
-                left: 12;
+            left: 12;
+
+            height: 19px;
         }
     }
 
     &__search-form-icon {
         width: 20px;
         height: 20px;
+
+        @media screen and (min-width: 768px) {
+            height: 19px;
+        }
     }
 
     &__burger-menu-btn {
@@ -114,20 +145,13 @@
         stroke: black;
     }
 
-    &__tablet-desktop-wrapper {
+    &__tablet-desktop-toggle-wrapper {
         display: flex;
+        align-items: center;
         gap: 8px;
 
         @media screen and (min-width: 1280px) {
             gap: 12px;
-        }
-    }
-
-    &__theme-text {
-        display: none;
-
-        @media screen and (min-width: 1280px) {
-            display: block;
         }
     }
 
@@ -144,13 +168,20 @@
             background-color: transparent;
             border-color: transparent;
         }
+
+        @media screen and (min-width: 1280px) {
+            width: 43px;
+            height: 24px;
+        }
     }
 
     &__theme-sun-icon {
-        width: 21px;
-        height: 21px;
+        @media screen and (max-width: 1279px) {
+            width: 21px;
+            height: 21px;
 
-        stroke: $light-theme-toggle-font-color;
+            stroke: $light-theme-toggle-font-color;
+        }
     }
 
     &__toggle-icon {
@@ -161,6 +192,19 @@
 
         @media screen and (min-width: 768px) {
             display: block;
+        }
+    }
+
+    &__theme-text {
+        display: none;
+
+        @media screen and (min-width: 1280px) {
+            display: block;
+            
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: calc(24 / 18);
         }
     }
 
@@ -177,13 +221,20 @@
             background-color: transparent;
             border-color: transparent;
         }
+
+        @media screen and (min-width: 1280px) {
+            width: 43px;
+            height: 24px;
+        }
     }
 
     &__theme-moon-icon {
-        width: 21px;
-        height: 21px;
+        @media screen and (max-width: 1279px) {
+            width: 21px;
+            height: 21px;
 
-        stroke: $light-theme-toggle-font-color;
+            stroke: $light-theme-toggle-font-color;
+        }
     }
 }
 
@@ -193,12 +244,14 @@
         display: none;
 
         @media screen and (min-width: 768px) {
-            // position: relative;
-
             display: flex;
             align-items: center;
             gap: 44px;
         } 
+
+        @media screen and (min-width: 1280px) {
+            gap: 69px;
+        }
     }
 
     // &__item {
@@ -212,6 +265,11 @@
         font-weight: 700;
         font-size: 16px;
         line-height: calc(22 / 16);
+
+        @media screen and (min-width: 1280px) {
+            font-size: 18px;
+            line-height: calc(25 / 18);
+        }
     }
 
     .current::after {
