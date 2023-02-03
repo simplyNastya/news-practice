@@ -1,4 +1,5 @@
 import './js/header-input-appearence';
+import './js/mobile-menu-open';
 import './js/calendar';
 import './js/category-news-search';
 import './js/input-news-search-fetch';

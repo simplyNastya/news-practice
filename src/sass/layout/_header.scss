@@ -2,8 +2,6 @@
     @extend %link;
     @extend %list;
 
-    margin-right: 14px;
-
     font-size: 24px;
     font-weight: 700;
     line-height: calc(33 / 24);
@@ -269,7 +267,7 @@
         }
     }
 
-    .current::after {
+        .current::after {
         content: '';
         width: 100%;
         position: absolute;

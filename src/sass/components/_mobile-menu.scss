@@ -1,0 +1,129 @@
+// .current {}
+
+.mobile-menu {
+    &__container {
+        @media screen and (max-width: 767px) {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        // z-index: 100;
+
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            flex-direction: column;
+
+            padding-top: 24px;
+            padding-bottom: 18px;
+            padding-left: 16px;
+
+            background-color: $white-color;
+        }
+        display: block;
+    }
+
+    &__header-wrapper {
+        display: flex;
+        align-items: center;
+
+        margin-bottom: 68px;
+    }
+
+    &__close-btn {
+        width: 24px;
+        height: 24px;
+
+        display: flex;
+        align-items: center;
+
+        margin-left: auto;
+
+        background-color: transparent;
+        border-color: transparent;
+    }
+
+    &__close-icon {
+        width: 24px;
+        height: 24px;
+
+        stroke: $light-theme-primary-font-color;
+
+    }
+
+    &__list {
+        @extend %list;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    &__item {
+        padding-top: 6px;
+        padding-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+    }
+
+    &__page-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    &__link {
+        @extend %link;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: calc(22 / 16);
+    }
+
+    &__wrapper {
+        margin-top: 248px;
+    }
+
+    &__theme-light-btn {
+        width: 21px;
+        height: 21px;
+
+        margin-right: 8px;
+
+        background-color: transparent;
+        border-color: transparent;
+    }
+
+    &__theme-sun-icon {
+        width: 21px;
+        height: 21px;
+
+        stroke: $light-theme-toggle-font-color;
+    }
+
+    &__toggle-icon {
+        width: 40px;
+        height: 20px;
+    }
+
+    &__theme-dark-btn {
+        width: 21px;
+        height: 21px;
+
+        margin-left: 8px;
+
+        background-color: transparent;
+        border-color: transparent;
+    }
+
+    &__theme-moon-icon {
+        width: 21px;
+        height: 21px;
+
+        stroke: $light-theme-toggle-font-color;
+    }
+}
+
+.invisible {
+    display: none;
+}
