@@ -1,3 +1,4 @@
+// Common
 .filter {
     &__section {
         padding-top: 24px;
@@ -16,8 +17,13 @@
     }
 }
 
+// Mobile
+
 .dropdown {
     &__wrapper {
+        @media screen and (min-width: 768px) {
+            display: none;
+        }
         position: relative;
         display: inline-block;
 
@@ -41,7 +47,6 @@
         &:focus .dropdown__content-admin-btn-icon-up {
             display: block;
         }
-
     }
 
     &__content-admin-btn {
@@ -97,9 +102,8 @@
     }
 
     &__content-item {
-        &:not(:last-child) {
-            margin-bottom: 12px;
-        }
+        margin-bottom: 12px;
+        
     }
 
     &__content-btn {
@@ -190,4 +194,178 @@
     &__icon-up {
         display: none;
     }
+}
+
+// Tablet
+.filter-tablet {
+    &__wrapper {
+        @media screen and (max-width: 767px) {
+            display: none;
+        }
+
+        display: flex;
+        gap: 14px;
+
+        @media screen and (min-width: 1280px) {
+            gap: 16px;
+        }
+    }
+}
+
+.filter-tablet {
+    &__list {
+        @extend %list;
+        display: flex;
+        gap: 14px;
+
+        @media screen and (min-width: 1280px) {
+            gap: 16px;
+        }
+    }
+
+    // &__item {}
+
+    &__btn {
+        height: 31px;
+
+        padding-top: 7.5px;
+        padding-right: 24px;
+        padding-bottom: 7.5px;
+        padding-left: 24px;
+
+        color: $accent-color;
+        background-color: transparent;
+        border: 1px solid #4440F7;
+        border-radius: 20px;
+        text-align: center;
+
+        &:hover {
+            color: $white-color;
+            background-color: $accent-color;
+        }
+    }
+}
+
+.dropdown-tablet {
+    &__wrapper {
+        position: relative;
+        display: inline-block;
+
+        &:hover .dropdown-tablet__content-wrapper,
+        &:focus .dropdown-tablet__content-wrapper {
+            display: block;
+        }
+
+        &:hover .dropdown-tablet__content-admin-btn,
+        &:focus .dropdown-tablet__content-admin-btn {
+            color: $white-color;
+            background-color: $accent-color;
+        }
+
+        &:hover .dropdown-tablet__content-admin-btn-icon-down,
+        &:focus .dropdown-tablet__content-admin-btn-icon-down {
+            display: none;
+        }
+
+        &:hover .dropdown-tablet__content-admin-btn-icon-up,
+        &:focus .dropdown-tablet__content-admin-btn-icon-up {
+            display: block;
+        }
+    }
+
+    &__content-admin-btn {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        width: 112px;
+        height: 31px;
+
+        padding-top: 7.5px;
+        padding-right: 24.5px;
+        padding-bottom: 7.5px;
+        padding-left: 24.5px;
+
+        color: $accent-color;
+        background-color: transparent;
+        border: 1px solid #4440F7;
+        border-radius: 20px;
+        text-align: center;
+    }
+
+    &__content-admin-btn-icon-down {
+        width: 14px;
+        height: 14px;
+
+        fill: $accent-color;
+    }
+
+    &__content-admin-btn-icon-up {
+        display: none;
+        width: 14px;
+        height: 14px;
+
+        fill: $white-color;
+    }
+
+    &__content-wrapper {
+        display: none;
+        position: absolute;
+        z-index: 200;
+        min-width: 168px;
+
+        padding-top: 14px;
+        padding-left: 14px;
+        background-color: #F8F8F8;
+        border-radius: 20px;
+        filter: drop-shadow(0px 10px 60px rgba(0, 0, 0, 0.1));
+    }
+
+    &__content-list {
+        @extend %list;
+    }
+
+    &__content-item {
+        margin-bottom: 12px;    
+    }
+
+    &__content-btn {
+        color: $accent-color;
+        background-color: transparent;
+        border: none;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+}
+
+.filter-desktop {
+    &__item {
+        @media screen and (max-width: 1279px) {
+            display: none;
+        }
+    }
+
+    &__btn {
+        height: 31px;
+
+        padding-top: 7.5px;
+        padding-right: 24px;
+        padding-bottom: 7.5px;
+        padding-left: 24px;
+
+        color: $accent-color;
+        background-color: transparent;
+        border: 1px solid #4440F7;
+        border-radius: 20px;
+        text-align: center;
+
+        &:hover {
+            color: $white-color;
+            background-color: $accent-color;
+        }
+    }
+
 }
