@@ -449,6 +449,19 @@ body {
   height: 15px;
   fill: #ffffff;
 }
+@media screen and (min-width: 768px) {
+  .calender__input:hover ~ .calender__icon-up, .calender__input:focus ~ .calender__icon-up {
+    width: 16px;
+    height: 16px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .calender__input {
+    width: 168px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
 .calender__icon-calendar {
   position: absolute;
   left: 12;
@@ -457,6 +470,12 @@ body {
   height: 19px;
   fill: #4440F6;
 }
+@media screen and (min-width: 768px) {
+  .calender__icon-calendar {
+    width: 20px;
+    height: 20px;
+  }
+}
 .calender__icon-down {
   position: absolute;
   right: 13;
@@ -464,6 +483,12 @@ body {
   width: 15px;
   height: 15px;
   fill: #A8A8A8;
+}
+@media screen and (min-width: 768px) {
+  .calender__icon-down {
+    width: 16px;
+    height: 16px;
+  }
 }
 .calender__icon-up {
   display: none;
