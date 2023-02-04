@@ -129,6 +129,10 @@
     }
 
     &__category {
+        position: absolute;
+        top: 40;
+        left: 0;
+
         display: inline-block;
         width: 112px;
         height: 24px;
@@ -145,6 +149,10 @@
     }
 
     &__already-read { 
+        position: absolute;
+        top: 14;
+        right: 14;
+
         display: flex;
         align-items: center;
         gap: 4px;
@@ -154,6 +162,11 @@
         line-height: calc(19 / 14);
 
         color: $already-read-color;
+
+        @media screen and (min-width: 768px) {
+            top: 20;
+            right: 21;
+        }
     }
 
     &__already-read-icon {
