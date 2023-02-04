@@ -9,6 +9,16 @@
 
     &__list {
         @extend %list;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+
+        @media screen and (min-width: 1280px) {
+            gap: 32px;
+        }
     }
 
     &__item {
@@ -25,7 +35,7 @@
         }
 
         @media screen and (min-width: 1280px) {
-            max-width: 395px;
+            max-width: 394px;
         }
     }
 
