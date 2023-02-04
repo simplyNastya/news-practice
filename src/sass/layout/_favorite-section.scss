@@ -1,18 +1,21 @@
-.news {
+.favorite {
     &__section {
+        padding-top: 40px;
         padding-bottom: 40px;
 
         @media screen and (min-width: 768px) {
+            padding-top: 48px;
             padding-bottom: 48px;
         }
 
         @media screen and (min-width: 1280px) {
+            padding-top: 60px;
             padding-bottom: 60px;
         }
     }
 
     // &__container {
-       
+
     // }
 
     &__list {
@@ -124,7 +127,7 @@
         align-items: center;
         gap: 4px;
 
-        width: 126px;
+        width: 168px;
         height: 28px;
         padding: 6px 12px;
 
@@ -143,17 +146,17 @@
             transform: translateY(1115%);
         }
 
-         @media screen and (min-width: 1280px) {
+        @media screen and (min-width: 1280px) {
             right: 12;
             transform: translateY(1260%);
         }
     }
-    
+
     &__btn-icon {
         width: 16px;
         height: 16px;
 
-        fill: none;
+        fill: $accent-color;
     }
 
     &__category {
@@ -176,7 +179,7 @@
         border-radius: 0px 4px 4px 0px;
     }
 
-    &__already-read { 
+    &__already-read {
         position: absolute;
         top: 14;
         right: 14;
@@ -202,7 +205,7 @@
         height: 18px;
     }
 
-    &__item-weather-tablet{
+    &__item-weather-tablet {
         width: 353px;
         height: 633px;
 
@@ -229,33 +232,6 @@
 
         @media screen and (min-width: 1280px) {
             display: block;
-        }
-    }
-}
-
-.weather {
-    &__container {
-        @media screen and (min-width: 768px) {
-            display: none;
-        }
-    }
-    
-    &__container-new {
-        width: 288px;
-        height: 469px;
-        margin-right: auto;
-        margin-left: auto;
-        margin-bottom: 28px;
-        background-color: $accent-color;
-
-        @media screen and (min-width: 768px) {
-            width: 353px;
-            height: 633px;
-        }
-
-        @media screen and (min-width: 1280px) {
-            width: 394px;
-            height: 675px;
         }
     }
 }

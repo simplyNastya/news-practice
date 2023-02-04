@@ -165,12 +165,12 @@ img {
   overflow: hidden;
 }
 
-.news__link, .nav__link, .logo, .mobile-menu__link {
+.news__link, .nav__link, .logo, .favorite__link, .mobile-menu__link {
   text-decoration: none;
   color: currentColor;
 }
 
-.news__list, .nav__list, .logo, .dropdown-tablet__content-list, .filter-tablet__list, .dropdown__content-list, .mobile-menu__list {
+.news__list, .nav__list, .logo, .dropdown-tablet__content-list, .filter-tablet__list, .dropdown__content-list, .favorite__list, .mobile-menu__list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -323,6 +323,218 @@ body {
 
 .invisible {
   display: none;
+}
+
+.favorite__section {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+@media screen and (min-width: 768px) {
+  .favorite__section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .favorite__section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .favorite__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .favorite__list {
+    gap: 32px;
+  }
+}
+.favorite__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 28px;
+  max-width: 288px;
+}
+@media screen and (min-width: 768px) {
+  .favorite__item {
+    max-width: 353px;
+    margin-bottom: 0;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .favorite__item {
+    max-width: 394px;
+  }
+}
+.favorite__img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .favorite__img {
+    max-width: 353px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .favorite__img {
+    max-width: 395px;
+  }
+}
+.favorite__title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.375;
+  letter-spacing: -0.01em;
+}
+@media screen and (min-width: 768px) {
+  .favorite__title {
+    font-size: 32px;
+    line-height: 1.375;
+  }
+}
+.favorite__subtitle {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.3571428571;
+}
+@media screen and (min-width: 768px) {
+  .favorite__subtitle {
+    font-size: 16px;
+    line-height: 1.375;
+  }
+}
+.favorite__date-link-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.favorite__date {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.3571428571;
+  color: #A8A8A8;
+}
+@media screen and (min-width: 768px) {
+  .favorite__date {
+    font-size: 16px;
+    line-height: 1.375;
+  }
+}
+.favorite__link {
+  color: #4440F6;
+}
+.favorite__btn {
+  position: absolute;
+  right: 8;
+  transform: translateY(895%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 168px;
+  height: 28px;
+  padding: 6px 12px;
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.3333333333;
+  text-align: center;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 20px;
+}
+@media screen and (min-width: 768px) {
+  .favorite__btn {
+    right: 12;
+    transform: translateY(1115%);
+  }
+}
+@media screen and (min-width: 1280px) {
+  .favorite__btn {
+    right: 12;
+    transform: translateY(1260%);
+  }
+}
+.favorite__btn-icon {
+  width: 16px;
+  height: 16px;
+  fill: #4440F6;
+}
+.favorite__category {
+  position: absolute;
+  top: 40;
+  left: 0;
+  display: inline-block;
+  width: 112px;
+  height: 24px;
+  padding: 4px 8px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.3333333333;
+  text-align: center;
+  color: #ffffff;
+  background-color: rgba(68, 64, 247, 0.7);
+  border-radius: 0px 4px 4px 0px;
+}
+.favorite__already-read {
+  position: absolute;
+  top: 14;
+  right: 14;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.3571428571;
+  color: #00DD73;
+}
+@media screen and (min-width: 768px) {
+  .favorite__already-read {
+    top: 20;
+    right: 21;
+  }
+}
+.favorite__already-read-icon {
+  width: 18px;
+  height: 18px;
+}
+.favorite__item-weather-tablet {
+  width: 353px;
+  height: 633px;
+  background-color: #4440F6;
+}
+@media screen and (max-width: 767px) {
+  .favorite__item-weather-tablet {
+    display: none;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .favorite__item-weather-tablet {
+    display: none;
+  }
+}
+.favorite__item-weather-desktop {
+  width: 394px;
+  height: 674px;
+  background-color: #4440F6;
+}
+@media screen and (max-width: 1279px) {
+  .favorite__item-weather-desktop {
+    display: none;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .favorite__item-weather-desktop {
+    display: block;
+  }
 }
 
 .filter__section {
@@ -934,6 +1146,19 @@ body {
   left: 12;
 }
 
+.news__section {
+  padding-bottom: 40px;
+}
+@media screen and (min-width: 768px) {
+  .news__section {
+    padding-bottom: 48px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .news__section {
+    padding-bottom: 60px;
+  }
+}
 @media screen and (min-width: 768px) {
   .news__list {
     display: flex;
@@ -1059,6 +1284,7 @@ body {
 .news__btn-icon {
   width: 16px;
   height: 16px;
+  fill: none;
 }
 .news__category {
   position: absolute;
@@ -1153,4 +1379,54 @@ body {
     width: 394px;
     height: 675px;
   }
+}
+
+.read__section {
+  padding-top: 40px;
+  padding-bottom: 48px;
+}
+@media screen and (min-width: 768px) {
+  .read__section {
+    padding-top: 48px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .read__section {
+    padding-top: 60px;
+    padding-bottom: 210px;
+  }
+}
+.read__btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  max-width: 288px;
+  max-height: 33px;
+  padding-bottom: 12px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.7142857143;
+  letter-spacing: 0.02em;
+  text-align: start;
+  color: #111321;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+@media screen and (min-width: 768px) {
+  .read__btn {
+    max-width: 736px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .read__btn {
+    max-width: 1248px;
+  }
+}
+.read__btn-icon-down {
+  width: 20px;
+  height: 20px;
+  fill: #111321;
+  stroke: #111321;
 }/*# sourceMappingURL=main.css.map */
