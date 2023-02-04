@@ -4,17 +4,19 @@
     // }
 
     // &__container {
-
+       
     // }
 
     &__list {
         @extend %list;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 30px;
+        @media screen and (min-width: 768px) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
 
         @media screen and (min-width: 1280px) {
             gap: 32px;
@@ -28,10 +30,15 @@
         flex-direction: column;
         gap: 20px;
 
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 28px;
+
         max-width: 288px;
 
         @media screen and (min-width: 768px) {
             max-width: 353px;
+            margin-bottom: 0;
         }
 
         @media screen and (min-width: 1280px) {
@@ -182,5 +189,62 @@
     &__already-read-icon {
         width: 18px;
         height: 18px;
+    }
+
+    &__item-weather-tablet{
+        width: 353px;
+        height: 633px;
+
+        background-color: $accent-color;
+
+        @media screen and (max-width: 767px) {
+            display: none;
+        }
+
+        @media screen and (min-width: 1280px) {
+            display: none;
+        }
+    }
+
+    &__item-weather-desktop {
+        width: 394px;
+        height: 674px;
+
+        background-color: $accent-color;
+
+        @media screen and (max-width: 1279px) {
+            display: none;
+        }
+
+        @media screen and (min-width: 1280px) {
+            display: block;
+        }
+    }
+}
+
+.weather {
+    &__container {
+        @media screen and (min-width: 768px) {
+            display: none;
+        }
+    }
+    
+    &__container-new {
+        width: 288px;
+        height: 469px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 28px;
+        background-color: $accent-color;
+
+        @media screen and (min-width: 768px) {
+            width: 353px;
+            height: 633px;
+        }
+
+        @media screen and (min-width: 1280px) {
+            width: 394px;
+            height: 675px;
+        }
     }
 }
