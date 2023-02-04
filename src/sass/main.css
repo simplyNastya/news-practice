@@ -148,7 +148,6 @@ button {
 img {
   display: block;
   max-width: 100%;
-  height: auto;
 }
 
 .visually-hidden {
@@ -971,8 +970,8 @@ body {
   }
 }
 .news__img {
-  max-width: 288px;
-  max-height: 395px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 @media screen and (min-width: 768px) {
   .news__img {
