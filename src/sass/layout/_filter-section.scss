@@ -8,6 +8,14 @@
         font-weight: 400;
         font-size: 12px;
         line-height: calc(16 / 12);
+
+        @media screen and (min-width: 768px) {
+            padding-bottom: 48px;
+        }
+
+        @media screen and (min-width: 1280px) {
+            padding-bottom: 60px;
+        }
     }
 
     &__container {
