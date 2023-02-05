@@ -34,27 +34,6 @@
         }
         position: relative;
         display: inline-block;
-
-        &:hover .dropdown__content-wrapper,
-        &:focus .dropdown__content-wrapper {
-            display: block;
-        }
-
-        &:hover .dropdown__content-admin-btn,
-        &:focus .dropdown__content-admin-btn {
-            color: $white-color;
-            background-color: $accent-color;
-        }
-
-        &:hover .dropdown__content-admin-btn-icon-down,
-        &:focus .dropdown__content-admin-btn-icon-down {
-            display: none;
-        }
-
-        &:hover .dropdown__content-admin-btn-icon-up,
-        &:focus .dropdown__content-admin-btn-icon-up {
-            display: block;
-        }
     }
 
     &__content-admin-btn {
@@ -97,6 +76,8 @@
         position: absolute;
         z-index: 10;
         min-width: 148px;
+        max-height: 380px;
+        overflow: scroll;
 
         padding-top: 14px;
         padding-left: 14px;
@@ -240,9 +221,7 @@
             gap: 16px;
         }
     }
-}
 
-.filter-tablet {
     &__list {
         @extend %list;
         display: flex;
@@ -280,27 +259,6 @@
     &__wrapper {
         position: relative;
         display: inline-block;
-
-        &:hover .dropdown-tablet__content-wrapper,
-        &:focus .dropdown-tablet__content-wrapper {
-            display: block;
-        }
-
-        &:hover .dropdown-tablet__content-admin-btn,
-        &:focus .dropdown-tablet__content-admin-btn {
-            color: $white-color;
-            background-color: $accent-color;
-        }
-
-        &:hover .dropdown-tablet__content-admin-btn-icon-down,
-        &:focus .dropdown-tablet__content-admin-btn-icon-down {
-            display: none;
-        }
-
-        &:hover .dropdown-tablet__content-admin-btn-icon-up,
-        &:focus .dropdown-tablet__content-admin-btn-icon-up {
-            display: block;
-        }
     }
 
     &__content-admin-btn {
@@ -343,6 +301,8 @@
         position: absolute;
         z-index: 200;
         min-width: 168px;
+        max-height: 380px;
+        overflow: scroll;
 
         padding-top: 14px;
         padding-left: 14px;
@@ -411,4 +371,17 @@
     font-size: 18px;
     line-height: calc(25 / 18);
     color: $light-theme-primary-font-color;
+}
+
+.visible-content {
+    display: block;
+}
+
+.invisible-content {
+    display: none;
+}
+
+.change-btn-style {
+    color: $white-color;
+    background-color: $accent-color;
 }
