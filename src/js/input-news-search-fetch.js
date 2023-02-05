@@ -6,26 +6,25 @@ import noImage from '../images/desctop/no-image-available.png'
 const formInputEl = document.querySelector('.header__search-form')
 const newsListEl = document.querySelector('.news__list')
 const containerNewsEl = document.querySelector('.news__container')
+const containerWeather = document.querySelector('.news__item-weather-tablet')
 
 const API_KEY = 'B0nM5YVwVGPOQpaqXoXzd3AxL5Kpg75H'
 
 let keyword
+let page = 1;
 
 async function makeFetch(keyword) {
-    const response = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${keyword}&api-key=${API_KEY}`)
+    const response = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${keyword}&page=${page}&sort=newest&api-key=${API_KEY}`)
     const data = await response.data
 
     if (data.response.docs.length === 0) {
-        createMarkupIfEmpty()
+        return createMarkupIfEmpty()
     }
     return data
-
-    // return fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${keyword}&api-key=${API_KEY}`)
-    //     .then(response => response.json())
 }
 
 function createMarkupNewsCards(array) {    
-    return array.map(item => {
+    return array.slice(0, 8).map(item => {
         let imageStart
         let imageBase
         if (item.multimedia.length > 0) {
@@ -66,9 +65,15 @@ function createMarkupNewsCards(array) {
     }).join('')
 }
 
+
+// function createMarkupWeather() {
+//     return '<div class="weather__container-markup"></div>'
+// }
+
 function appendMarkup(array) {
     const markup = createMarkupNewsCards(array)
     newsListEl.innerHTML = markup
+    // containerWeather.insertAdjacentHTML('afterend', createMarkupWeather())
 }
 
 function createMarkupIfEmpty() {
@@ -86,25 +91,12 @@ function handleSearchQuery(e) {
             if (keyword === '') {
                 return
             }
-            
             appendMarkup(data.response.docs)
+            page += 1;
         })
         .catch((error) => {
             console.log(error)
         })
-
-    // makeFetch(keyword)
-    //     .then(data => {
-    //         console.log(data.response.docs)
-    //         if (keyword === '') {
-    //             return
-    //         }
-    //         else if (data.response.docs.length === 0) {
-    //              createMarkupIfEmpty()
-    //         }
-    //         appendMarkup(data.response.docs)
-    //     })
-    //     .catch(error => console.log(error))
 }
 
 formInputEl.addEventListener('submit', handleSearchQuery)

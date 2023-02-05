@@ -1340,7 +1340,7 @@ body {
 }
 .news__item-weather-tablet {
   width: 353px;
-  height: 633px;
+  height: 675px;
   background-color: #4440F6;
 }
 @media screen and (max-width: 767px) {
@@ -1420,22 +1420,22 @@ body {
     display: none;
   }
 }
-.weather__container-new {
+.weather__container-markup {
   width: 288px;
-  height: 469px;
+  height: 630px;
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 28px;
   background-color: #4440F6;
 }
 @media screen and (min-width: 768px) {
-  .weather__container-new {
+  .weather__container-markup {
     width: 353px;
-    height: 633px;
+    height: 675px;
   }
 }
 @media screen and (min-width: 1280px) {
-  .weather__container-new {
+  .weather__container-markup {
     width: 394px;
     height: 675px;
   }

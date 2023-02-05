@@ -219,7 +219,7 @@
 
     &__item-weather-tablet{
         width: 353px;
-        height: 633px;
+        height: 675px;
 
         background-color: $accent-color;
 
@@ -306,9 +306,9 @@
         }
     }
     
-    &__container-new {
+    &__container-markup {
         width: 288px;
-        height: 469px;
+        height: 630px;
         margin-right: auto;
         margin-left: auto;
         margin-bottom: 28px;
@@ -316,7 +316,7 @@
 
         @media screen and (min-width: 768px) {
             width: 353px;
-            height: 633px;
+            height: 675px;
         }
 
         @media screen and (min-width: 1280px) {
