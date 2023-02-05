@@ -1,3 +1,4 @@
+import axios from "axios"
 import svg from '../images/symbol-defs.svg'
 import imgOps from '../images/desctop/news-main-img.png'
 import noImage from '../images/desctop/no-image-available.png'
@@ -10,9 +11,17 @@ const API_KEY = 'B0nM5YVwVGPOQpaqXoXzd3AxL5Kpg75H'
 
 let keyword
 
-function makeFetch(keyword) {
-    return fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${keyword}&api-key=${API_KEY}`)
-        .then(response => response.json())
+async function makeFetch(keyword) {
+    const response = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${keyword}&api-key=${API_KEY}`)
+    const data = await response.data
+
+    if (data.response.docs.length === 0) {
+        createMarkupIfEmpty()
+    }
+    return data
+
+    // return fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${keyword}&api-key=${API_KEY}`)
+    //     .then(response => response.json())
 }
 
 function createMarkupNewsCards(array) {    
@@ -74,16 +83,28 @@ function handleSearchQuery(e) {
 
     makeFetch(keyword)
         .then(data => {
-            console.log(data.response.docs)
             if (keyword === '') {
                 return
             }
-            else if (data.response.docs.length === 0) {
-                return createMarkupIfEmpty()
-            }
+            
             appendMarkup(data.response.docs)
         })
-        .catch(error => console.log(error))
+        .catch((error) => {
+            console.log(error)
+        })
+
+    // makeFetch(keyword)
+    //     .then(data => {
+    //         console.log(data.response.docs)
+    //         if (keyword === '') {
+    //             return
+    //         }
+    //         else if (data.response.docs.length === 0) {
+    //              createMarkupIfEmpty()
+    //         }
+    //         appendMarkup(data.response.docs)
+    //     })
+    //     .catch(error => console.log(error))
 }
 
 formInputEl.addEventListener('submit', handleSearchQuery)
