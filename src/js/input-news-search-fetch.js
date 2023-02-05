@@ -6,7 +6,7 @@ import noImage from '../images/desctop/no-image-available.png'
 const formInputEl = document.querySelector('.header__search-form')
 const newsListEl = document.querySelector('.news__list')
 const containerNewsEl = document.querySelector('.news__container')
-const containerWeather = document.querySelector('.news__item-weather-tablet')
+// const containerWeather = document.querySelector('.news__item-weather-tablet')
 
 const API_KEY = 'B0nM5YVwVGPOQpaqXoXzd3AxL5Kpg75H'
 
