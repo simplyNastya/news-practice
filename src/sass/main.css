@@ -148,6 +148,7 @@ button {
 img {
   display: block;
   max-width: 100%;
+  height: 100%;
 }
 
 .visually-hidden {
@@ -1182,10 +1183,12 @@ body {
   margin-right: auto;
   margin-bottom: 28px;
   max-width: 288px;
+  height: 630px;
 }
 @media screen and (min-width: 768px) {
   .news__item {
     max-width: 353px;
+    height: 675px;
     margin-bottom: 0;
   }
 }
@@ -1195,6 +1198,8 @@ body {
   }
 }
 .news__img {
+  max-width: 288px;
+  max-height: 395px;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -1209,6 +1214,10 @@ body {
   }
 }
 .news__title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
   font-weight: 700;
   font-size: 24px;
   line-height: 1.375;
@@ -1221,6 +1230,10 @@ body {
   }
 }
 .news__subtitle {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.3571428571;
@@ -1234,6 +1247,7 @@ body {
 .news__date-link-wrapper {
   display: flex;
   justify-content: space-between;
+  margin-top: auto;
 }
 .news__date {
   font-weight: 400;
@@ -1253,7 +1267,7 @@ body {
 .news__btn {
   position: absolute;
   right: 8;
-  transform: translateY(895%);
+  bottom: 250;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -1272,13 +1286,13 @@ body {
 @media screen and (min-width: 768px) {
   .news__btn {
     right: 12;
-    transform: translateY(1115%);
+    bottom: 300;
   }
 }
 @media screen and (min-width: 1280px) {
   .news__btn {
     right: 12;
-    transform: translateY(1260%);
+    bottom: 300;
   }
 }
 .news__btn-icon {
@@ -1352,6 +1366,52 @@ body {
 @media screen and (min-width: 1280px) {
   .news__item-weather-desktop {
     display: block;
+  }
+}
+.news__title-if-empty {
+  max-width: 276px;
+  margin-top: 16px;
+  margin-right: auto;
+  margin-bottom: 40px;
+  margin-left: auto;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.35;
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+@media screen and (min-width: 768px) {
+  .news__title-if-empty {
+    max-width: 548px;
+    margin-top: 64px;
+    font-size: 40px;
+    line-height: 1.375;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .news__title-if-empty {
+    margin-top: 97px;
+  }
+}
+.news__img-if-empty {
+  max-width: 248px;
+  max-height: 198px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 19px;
+}
+@media screen and (min-width: 768px) {
+  .news__img-if-empty {
+    max-width: 560px;
+    max-height: 444px;
+    margin-bottom: 61px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .news__img-if-empty {
+    max-width: 601px;
+    max-height: 478px;
+    margin-bottom: 186px;
   }
 }
 
