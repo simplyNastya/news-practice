@@ -8,7 +8,7 @@ const API_KEY = 'B0nM5YVwVGPOQpaqXoXzd3AxL5Kpg75H'
 let data
 
 async function makeFetch() {
-    const response = await axios.get(`https://api.nytimes.com/svc/mostpopular/v2/shared/1/facebook.json?api-key=${API_KEY}`)
+    const response = await axios.get(`https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=${API_KEY}`)
     data = await response.data
     console.log(data)
 }
