@@ -108,7 +108,7 @@ function createMarkupNewsCards(array) {
       let imageCaption
       if (item.multimedia === null) {
         imageBase = `${noImage}`
-        imageCaption = 'image'
+        imageCaption = 'na image'
       } else if (item.multimedia !== null) {
         imageBase = item.multimedia[2].url
         imageCaption = item.multimedia[0].caption

@@ -1,8 +1,9 @@
 import './js/header-input-appearence';
 import './js/mobile-menu-open';
-import './js/calendar';
-import './js/category-news-search';
+import './js/default-news-section';
 import './js/input-news-search-fetch';
+import './js/category-news-search';
+import './js/calendar';
 import './js/pagination';
 import './js/theme-toggle';
 import './js/user-authorization';
