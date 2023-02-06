@@ -12,6 +12,8 @@ const othersDropdownContentWrapperEl = document.querySelector('.dropdown-tablet_
 const othersArrowDownIconEl = document.querySelector('.dropdown-tablet__content-admin-btn-icon-down')
 const othersArrowUpIconEl = document.querySelector('.dropdown-tablet__content-admin-btn-icon-up')
 
+
+const filterCategoriesListEl = document.querySelector('.filter-tablet__list')
 const categoriesDropdownListEl = document.querySelector('.dropdown__content-list')
 const othersDropdownListEl = document.querySelector('.dropdown-tablet__content-list')
 
@@ -87,6 +89,7 @@ function getFetchValue(e) {
   keyword = e.target.textContent.trim()
   keyword = keyword.toLowerCase()
 }
+filterCategoriesListEl.addEventListener('click', getFetchValue)
 categoriesDropdownListEl.addEventListener('click', getFetchValue)
 othersDropdownListEl.addEventListener('click', getFetchValue)
 
@@ -94,9 +97,7 @@ othersDropdownListEl.addEventListener('click', getFetchValue)
 // Делаем функцию для получения результата запроса
 async function makeFetch(keyword) {
   const response = await axios.get(`https://api.nytimes.com/svc/news/v3/content/nyt/${keyword}.json?page=${page}&sort=newest&api-key=${API_KEY}`)
-  console.log(response)
   data = await response.data
-  console.log(data)
   return data
 }
 
@@ -112,39 +113,34 @@ function createMarkupNewsCards(array) {
         imageBase = item.multimedia[2].url
         imageCaption = item.multimedia[0].caption
       }
-        // if (item.multimedia.length > 0) {
-        //     imageBase = item.multimedia[2].url;
-        // } else if (item.multimedia.length === 0 || item.multimedia === null) {
-        //     imageBase = `${noImage}`
-        // }
+      
+      let formatDate = item.published_date.slice(0, 10).replace(/-/g, '/')
+      let formattedDate = Array.from(formatDate)
+      formattedDate = formattedDate[8] + formattedDate[9] + formattedDate[7] + formattedDate[5] +formattedDate[6] + formattedDate[4] + formattedDate[0] + formattedDate[1] + formattedDate[2] + formattedDate[3]
 
-        let formatDate = item.published_date.slice(0, 10).replace(/-/g, '/')
-        let formattedDate = Array.from(formatDate)
-        formattedDate = formattedDate[8] + formattedDate[9] + formattedDate[7] + formattedDate[5] + formattedDate[6] + formattedDate[4] + formattedDate[0] + formattedDate[1] + formattedDate[2] + formattedDate[3]
-
-        return `<li class="news__item"">
-        <img
-          src="${imageBase}"
-          alt="${imageCaption}"
-          class="news__img"
-        />
-        <h2 class="news__title">
-          ${item.title}
-        </h2>
-        <h3 class="news__subtitle">
-          ${item.abstract}
-        </h3>
-        <div class="news__date-link-wrapper">
-          <p class="news__date">${formattedDate}</p>
-          <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="news__link">Read more</a>
-        </div>
-        <button type="button" class="news__btn">
-          Add to favorite
-          <svg class="news__btn-icon">
-            <use href="${svg}#icon-heart"></use>
-          </svg>
-        </button>
-        <p class="news__category">${item.section}</p>
+      return `<li class="news__item"">
+      <img
+        src="${imageBase}"
+        alt="${imageCaption}"
+        class="news__img"
+      />
+      <h2 class="news__title">
+        ${item.title}
+      </h2>
+      <h3 class="news__subtitle">
+        ${item.abstract}
+      </h3>
+      <div class="news__date-link-wrapper">
+        <p class="news__date">${formattedDate}</p>
+        <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="news__link">Read more</a>
+      </div>
+      <button type="button" class="news__btn">
+        Add to favorite
+        <svg class="news__btn-icon">
+          <use href="${svg}#icon-heart"></use>
+        </svg>
+      </button>
+      <p class="news__category">${item.section}</p>
       </li>`
     }).join('')
 }
@@ -174,3 +170,4 @@ function handleFetch() {
 }
 categoriesDropdownListEl.addEventListener('click', handleFetch)
 othersDropdownListEl.addEventListener('click', handleFetch)
+filterCategoriesListEl.addEventListener('click', handleFetch)
