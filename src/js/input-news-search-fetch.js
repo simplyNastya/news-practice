@@ -18,7 +18,7 @@ async function makeFetch(keyword) {
     const data = await response.data
 
     if (data.response.docs.length === 0) {
-        return createMarkupIfEmpty()
+         createMarkupIfEmpty()
     }
     return data
 }

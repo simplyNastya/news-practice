@@ -10,7 +10,6 @@ let data
 async function makeFetch() {
     const response = await axios.get(`https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=${API_KEY}`)
     data = await response.data
-    console.log(data)
 }
 
 function createMarkupNewsCards(array) {    
@@ -65,7 +64,6 @@ function appendMarkup(array) {
 function handleFetch() {
     makeFetch()
         .then(() => {
-            console.log(data.results)
             appendMarkup(data.results)
         })
         .catch(error => {
