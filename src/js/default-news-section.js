@@ -47,7 +47,7 @@ function createMarkupNewsCards(array) {
         </div>
         <button type="button" class="news__btn theme-light">
           Add to favorite
-          <svg class="news__btn-icon theme-light">
+          <svg style="fill:none;" class="news__btn-icon theme-light">
             <use href="${svg}#icon-heart"></use>
           </svg>
         </button>

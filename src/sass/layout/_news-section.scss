@@ -168,7 +168,7 @@
         width: 16px;
         height: 16px;
 
-        fill: none;
+        // fill: none;
     }
 
     &__category {
@@ -324,4 +324,8 @@
             height: 675px;
         }
     }
+}
+
+.fav .news__btn-icon {
+    fill: $accent-color !important;
 }

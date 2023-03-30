@@ -1,12 +1,18 @@
 import localStorageAPI from './storage';
-const favoriteNews = localStorageAPI.load("favourite-news") || []
+let favoriteNews = localStorageAPI.load("favorite-news") || []
 
 document.addEventListener("click", function (e) {
     const targetBtn = e.target.closest(".news__btn");
     const targetItem = e.target.closest(".news__item");
 
-    if (targetBtn) {
-        favoriteNew = {
+    if (e.target.nodeName !== `BUTTON`) {
+        return;
+    }
+
+    targetBtn.classList.toggle("fav")
+
+    if (targetBtn.classList.contains("fav")) {
+        const favoriteNew = {
             id: e.target.parentNode.id,
             src: targetItem.children[0].src,
             alt: targetItem.children[0].alt,
@@ -18,7 +24,16 @@ document.addEventListener("click", function (e) {
         }
 
         favoriteNews.push(favoriteNew)
-        localStorageAPI.save("favourite-news", favoriteNews)
+        localStorageAPI.save("favorite-news", favoriteNews)
     }
-  
+
+    if (!targetBtn.classList.contains("fav")) {
+        const favoriteNewsRemove = localStorageAPI.load("favorite-news").filter(item => item.id !== e.target.parentNode.id)
+        localStorageAPI.remove("favorite-news")
+        localStorageAPI.save("favorite-news", favoriteNewsRemove)
+        favoriteNews = favoriteNewsRemove
+    }
+    
 });
+
+
