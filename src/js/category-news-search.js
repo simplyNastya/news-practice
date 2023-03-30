@@ -12,7 +12,6 @@ const othersDropdownContentWrapperEl = document.querySelector('.dropdown-tablet_
 const othersArrowDownIconEl = document.querySelector('.dropdown-tablet__content-admin-btn-icon-down')
 const othersArrowUpIconEl = document.querySelector('.dropdown-tablet__content-admin-btn-icon-up')
 
-
 const filterCategoriesListEl = document.querySelector('.filter-tablet__list')
 const categoriesDropdownListEl = document.querySelector('.dropdown__content-list')
 const othersDropdownListEl = document.querySelector('.dropdown-tablet__content-list')
