@@ -77,7 +77,7 @@ function appendMarkup(array) {
 }
 
 function createMarkupIfEmpty() {
-    const markup = `<h2 class="news__title-if-empty">We haven’t found news from this category</h2><img src="${imgOps}" alt="Ooooops" class="news__img-if-empty"/>`
+    const markup = `<h2 class="news__title-if-empty theme-light">We haven’t found news from this category</h2><img src="${imgOps}" alt="Ooooops" class="news__img-if-empty theme-light"/>`
     containerNewsEl.innerHTML = markup;
 }
 

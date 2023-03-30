@@ -24,7 +24,7 @@ const options = {
     shorthand: true,
     locale: {
         firstDayOfWeek: 1,
-    },
+  },
 
     onChange(selectedDates) {
         let ourDate = new Date(selectedDates)
@@ -78,29 +78,29 @@ function createMarkupByDateAndCategory(array) {
         let formattedDate = Array.from(formatDate)
         formattedDate = formattedDate[8] + formattedDate[9] + formattedDate[7] + formattedDate[5] + formattedDate[6] + formattedDate[4] + formattedDate[0] + formattedDate[1] + formattedDate[2] + formattedDate[3]
 
-        return `<li class="news__item" id="${item._id}">
+        return `<li class="news__item theme-light" id="${item._id}">
         <img
           src="${imageBase}"
           alt="${item.section_name}"
-          class="news__img"
+          class="news__img theme-light"
         />
-        <h2 class="news__title">
+        <h2 class="news__title theme-light">
           ${item.headline.main}
         </h2>
-        <h3 class="news__subtitle">
+        <h3 class="news__subtitle theme-light">
           ${item.snippet}
         </h3>
-        <div class="news__date-link-wrapper">
-          <p class="news__date">${formattedDate}</p>
-          <a href="${item.web_url}" target="_blank" rel="noopener noreferrer" class="news__link">Read more</a>
+        <div class="news__date-link-wrapper theme-light">
+          <p class="news__date theme-light">${formattedDate}</p>
+          <a href="${item.web_url}" target="_blank" rel="noopener noreferrer" class="news__link theme-light">Read more</a>
         </div>
-        <button type="button" class="news__btn">
+        <button type="button" class="news__btn theme-light">
           Add to favorite
-          <svg class="news__btn-icon">
+          <svg class="news__btn-icon theme-light">
             <use href="${svg}#icon-heart"></use>
           </svg>
         </button>
-        <p class="news__category">${item.section_name}</p>
+        <p class="news__category theme-light">${item.section_name}</p>
       </li>`
     }).join('')
 }
@@ -111,6 +111,6 @@ function appendMarkup(array) {
 }
 
 function createMarkupIfNoResultsByFetch() {
-    const markup = `<h2 class="news__title-if-empty">We haven’t found news from this category that day</h2><img src="${imgOps}" alt="Ooooops" class="news__img-if-empty"/>`
+    const markup = `<h2 class="news__title-if-empty theme-light">We haven’t found news from this category that day</h2><img src="${imgOps}" alt="Ooooops" class="news__img-if-empty theme-light"/>`
     newsContainer.innerHTML = markup;
 }

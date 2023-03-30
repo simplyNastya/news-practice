@@ -13,3 +13,13 @@ body {
     overflow-y: scroll;
     scroll-behavior: smooth;
 }
+
+.theme-light {
+    color: $light-theme-primary-font-color;
+    background-color: $light-theme-bgd-color;
+}
+
+.theme-dark {
+    color: $dark-theme-primary-font-color;
+    background-color: $dark-theme-bgd-color;
+}
