@@ -3,6 +3,8 @@
         padding-top: 40px;
         padding-bottom: 48px;
 
+        height: 100vh;
+
         @media screen and (min-width: 768px) {
             padding-top: 48px;
         }
@@ -25,8 +27,8 @@
         align-items: center;
         gap: 7px;
 
-        max-width: 288px;
-        max-height: 33px;
+        width: 288px;
+        height: 33px;
 
         padding-bottom: 12px;
 
@@ -43,29 +45,36 @@
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 
         @media screen and (min-width: 768px) {
-            max-width: 736px;
+            width: 736px;
         }
 
         @media screen and (min-width: 1280px) {
-            max-width: 1248px;
+            width: 1248px;
         }
     }
 
     &__btn-icon-down {
-        width: 20px;
-        height: 20px;
+        width: 9px;
+        height: 14px;
 
         fill: $light-theme-primary-font-color;
         stroke: $light-theme-primary-font-color;
+
+        @media screen and(min-width: 1280px) {
+            height: 15px;
+        }
     }
 
     &__btn-icon-up {
         display: none;
-        width: 20px;
-        height: 20px;
+        width: 9px;
+        height: 14px;
         
         fill: $light-theme-primary-font-color;
         stroke: $light-theme-primary-font-color;
+        @media screen and(min-width: 1280px) {
+            height: 15px;
+        }
     }
 
     &__dropdown-content-wrapper {
@@ -81,15 +90,12 @@
         padding-top: 14px;
         padding-left: 14px;
         padding-bottom: 40px;
-        background-color: #F8F8F8;
+        background-color: $light-theme-bgd-color;
         border-radius: 20px;
         filter: drop-shadow(0px 10px 60px rgba(0, 0, 0, 0.1));
 
         max-width: 480px;
         min-width: 320px;
-        
-        
-        
         
         @media screen and (min-width: 768px) {
             min-width: 768px;
@@ -129,6 +135,8 @@
 
         max-width: 288px;
         height: 630px;
+
+        opacity: 0.8;
 
         @media screen and (min-width: 768px) {
             max-width: 353px;

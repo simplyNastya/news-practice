@@ -124,81 +124,29 @@
       </div>
     </div>
 
-    <section class="read__section theme-light">
-      <div class="container read__section-container theme-light">
-        <div class="read__dropdown-wrapper theme-light">
-          <button
-            type="button"
-            class="read__dropdown-content-admin-btn theme-light"
-          >
-            20/02/2023
-            <svg class="read__btn-icon-down theme-light">
-              <use href="/src/images/symbol-defs.svg#icon-arrow-down"></use>
-            </svg>
-            <svg class="read__btn-icon-up theme-light">
-              <use href="/src/images/symbol-defs.svg#icon-arrow-up"></use>
-            </svg>
-          </button>
-          <div class="read__dropdown-content-wrapper theme-light">
-            <ul class="read__dropdown-content-list theme-light">
-              <!-- <li
-                class="read__dropdown-content-item theme-light"
-                id="${item.uri}"
-              >
-                <img
-                  src="${imageBase}"
-                  alt="${imageCaption}"
-                  class="read__dropdown-content-img theme-light"
-                />
-                <h2 class="read__dropdown-content-title theme-light">
-                  ${item.title}
-                </h2>
-                <h3 class="read__dropdown-content-subtitle theme-light">
-                  ${item.abstract}
-                </h3>
-                <div
-                  class="read__dropdown-content-date-link-wrapper theme-light"
-                >
-                  <p class="read__dropdown-content-date theme-light">
-                    ${formattedDate}
-                  </p>
-                  <a
-                    href="${item.url}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="read__dropdown-content-link theme-light"
-                    >Read more</a
-                  >
-                </div>
-                <button
-                  type="button"
-                  class="read__dropdown-content-btn theme-light"
-                >
-                  Add to favorite
-                  <svg
-                    style="fill: none"
-                    class="read__dropdown-content-btn-icon theme-light"
-                  >
-                    <use href="${svg}#icon-heart"></use>
-                  </svg>
-                </button>
-                <p class="read__dropdown-content-category theme-light">
-                  ${item.section}
-                </p>
-                <p class="read__dropdown-content-already-read">
-                  Already read
-                  <svg class="read__dropdown-content-already-read-icon">
-                    <use
-                      href="/src/images/symbol-defs.svg#icon-icon-check"
-                    ></use>
-                  </svg>
-                </p>
-              </li> -->
-            </ul>
+    <main class="read__page">
+      <section class="read__section theme-light">
+        <div class="container read__section-container theme-light">
+          <div class="read__dropdown-wrapper theme-light">
+            <button
+              type="button"
+              class="read__dropdown-content-admin-btn theme-light"
+            >
+              20/02/2023
+              <svg class="read__btn-icon-down theme-light">
+                <use href="/src/images/symbol-defs.svg#icon-arrow-down"></use>
+              </svg>
+              <svg class="read__btn-icon-up theme-light">
+                <use href="/src/images/symbol-defs.svg#icon-arrow-up"></use>
+              </svg>
+            </button>
+            <div class="read__dropdown-content-wrapper theme-light">
+              <ul class="read__dropdown-content-list theme-light"></ul>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <script src="./read.js" type="module"></script>
   </body>

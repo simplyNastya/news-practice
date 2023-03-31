@@ -69,6 +69,7 @@
         height: 14px;
 
         fill: $white-color;
+        background-color: transparent;
     }
 
     &__content-wrapper {
@@ -139,6 +140,7 @@
         &:hover+.calender__icon-calendar,
         &:focus+.calender__icon-calendar {
             fill: $white-color;
+            background-color: transparent;
         }
 
         &:hover~.calender__icon-down,
@@ -156,6 +158,7 @@
             height: 15px;
 
             fill: $white-color;
+            background-color: transparent;
 
             @media screen and (min-width: 768px) {
                 width: 16px;
@@ -294,6 +297,7 @@
         height: 14px;
 
         fill: $white-color;
+        background-color: transparent;
     }
 
     &__content-wrapper {
