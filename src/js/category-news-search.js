@@ -136,11 +136,14 @@ function createMarkupNewsCards(array) {
         <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="news__link theme-light">Read more</a>
       </div>
       <button type="button" class="news__btn theme-light">
-        Add to favorite
-        <svg style="fill:none;" class="news__btn-icon theme-light">
-          <use href="${svg}#icon-heart"></use>
-        </svg>
-      </button>
+          Add to favorite
+          </button>
+          <svg class="news__btn-icon-add theme-light">
+            <use href="${svg}#icon-heart"></use>
+          </svg>
+          <svg class="news__btn-icon-remove theme-light">
+            <use href="${svg}#icon-heart"></use>
+          </svg>
       <p class="news__category theme-light">${item.section}</p>
       </li>`
     }).join('')

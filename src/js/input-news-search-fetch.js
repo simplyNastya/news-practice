@@ -54,12 +54,15 @@ function createMarkupNewsCards(array) {
           <p class="news__date">${formattedDate}</p>
           <a href="${item.web_url}" target="_blank" rel="noopener noreferrer" class="news__link">Read more</a>
         </div>
-        <button type="button" class="news__btn">
+        <button type="button" class="news__btn theme-light">
           Add to favorite
-          <svg class="news__btn-icon">
+          </button>
+          <svg class="news__btn-icon-add theme-light">
             <use href="${svg}#icon-heart"></use>
           </svg>
-        </button>
+          <svg class="news__btn-icon-remove theme-light">
+            <use href="${svg}#icon-heart"></use>
+          </svg>
         <p class="news__category">${item.section_name}</p>
       </li>`
     }).join('')
