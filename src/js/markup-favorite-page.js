@@ -1,12 +1,20 @@
+import imgOps from '../images/desctop/news-main-img.png'
 import svg from '../images/symbol-defs.svg'
 import localStorageAPI from './storage'
 
 const favoriteListEl = document.querySelector(".favorite__list")
 const favoriteNewsArray = localStorageAPI.load("favorite-news")
+const favoriteNewsTitle = document.querySelector(".favorite__section-title")
 
 console.log(favoriteNewsArray)
 
 function createMarkupFavoriteNews() {
+
+  if (!favoriteNewsArray || !favoriteNewsArray.length) {
+    return (favoriteNewsTitle.innerHTML = `<div class="favorite__noItem-wrapper"><h2 class="favorite__noItem-title">This page is empty yet</h2><img src="${imgOps}" alt="Ooooops" class="favorite__noItem-img"/></div>`)
+
+  }
+
       return favoriteNewsArray.map(({uri, src, alt, title, subtitle, date, href, category}) => {
             return `<li id="${uri}" class="favorite__item theme-light">
       <img
