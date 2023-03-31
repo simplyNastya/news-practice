@@ -71,8 +71,8 @@
     &__dropdown-content-wrapper {
         display: none;
         position: absolute;
-        z-index: 10;
-        min-width: 148px;
+        z-index: 200;
+        min-width: 168px;
         max-height: 380px;
         overflow: scroll;
 
@@ -282,4 +282,17 @@
         width: 18px;
         height: 18px;
     }
+}
+
+.visible-content {
+    display: block;
+}
+
+.invisible-content {
+    display: none;
+}
+
+.change-btn-style {
+    color: $white-color;
+    background-color: $accent-color;
 }
