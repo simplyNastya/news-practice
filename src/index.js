@@ -9,4 +9,3 @@ import './js/theme-toggle';
 import './js/user-authorization';
 import './js/weather';
 import './js/add-and-remove-favourite-to-storage';
-import './js/markup-favorite-page';
