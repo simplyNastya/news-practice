@@ -190,7 +190,8 @@
         border-radius: 0px 4px 4px 0px;
     }
 
-    &__already-read { 
+    &__already-read {
+        opacity: 0;
         position: absolute;
         top: 14;
         right: 14;
@@ -327,4 +328,8 @@
 
 .fav .news__btn-icon {
     fill: $accent-color !important;
+}
+
+.visible {
+    opacity: 1;
 }

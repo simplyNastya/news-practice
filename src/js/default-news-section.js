@@ -52,6 +52,12 @@ function createMarkupNewsCards(array) {
           </svg>
         </button>
         <p class="news__category theme-light">${item.section}</p>
+        <p class="news__already-read">
+          Already read
+          <svg class="news__already-read-icon">
+            <use href="/src/images/symbol-defs.svg#icon-icon-check"></use>
+          </svg>
+        </p>
       </li>`
     }).join('')
 }
