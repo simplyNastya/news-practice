@@ -14,12 +14,45 @@
         }
     }
 
+    &__noItem-title {
+        margin-bottom: 40px;
+
+        text-align: center;
+
+        font-weight: 700;
+        font-size: 20px;
+        line-height: calc(27 / 20);
+
+        @media screen and(min-width: 768px) {
+        font-size: 40px;
+        line-height: calc(55 / 40);
+        }
+    }
+
+    &__noItem-img {
+        max-width: 248px;
+        max-height: 198px;
+
+        @media screen and(min-width: 768px) {
+        max-width: 560px;
+        max-height: 444px;
+        }
+
+        @media screen and(min-width: 1280px) {
+        max-width: 601px;
+        max-height: 478px;
+        }
+    }
+
     // &__container {
 
     // }
 
     &__list {
         @extend %list;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         @media screen and (min-width: 768px) {
             display: flex;

@@ -3,8 +3,9 @@ import svg from '../images/symbol-defs.svg'
 import localStorageAPI from './storage'
 
 const favoriteListEl = document.querySelector(".favorite__list")
-const favoriteNewsArray = localStorageAPI.load("favorite-news")
 const favoriteNewsTitle = document.querySelector(".favorite__section-title")
+
+const favoriteNewsArray = localStorageAPI.load("favorite-news")
 
 console.log(favoriteNewsArray)
 
