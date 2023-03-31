@@ -13,7 +13,7 @@ async function makeFetch() {
 }
 
 function createMarkupNewsCards(array) {    
-    return array.slice(0, 8).map(item => {
+  return array.slice(0, 8).map(item => {
         let imageBase
         let imageCaption
 
@@ -29,7 +29,7 @@ function createMarkupNewsCards(array) {
         let formattedDate = Array.from(formatDate)
         formattedDate = formattedDate[8] + formattedDate[9] + formattedDate[7] + formattedDate[5] + formattedDate[6] + formattedDate[4] + formattedDate[0] + formattedDate[1] + formattedDate[2] + formattedDate[3]
 
-        return `<li class="news__item theme-light" id="${item.id}">
+        return `<li class="news__item theme-light" id="${item.uri}">
         <img
           src="${imageBase}"
           alt="${imageCaption}"

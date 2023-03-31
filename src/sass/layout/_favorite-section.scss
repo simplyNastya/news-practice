@@ -46,9 +46,11 @@
         margin-bottom: 28px;
 
         max-width: 288px;
+        height: 630px;
 
         @media screen and (min-width: 768px) {
             max-width: 353px;
+            height: 675px;
             margin-bottom: 0;
         }
 
@@ -58,8 +60,8 @@
     }
 
     &__img {
-        // max-width: 288px;
-        // max-height: 395px;
+        max-width: 288px;
+        max-height: 395px;
         object-fit: cover;
 
         @media screen and (min-width: 768px) {
@@ -72,6 +74,10 @@
     }
 
     &__title {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
         font-weight: 700;
         font-size: 24px;
         line-height: calc(33 / 24);
@@ -85,6 +91,10 @@
     }
 
     &__subtitle {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
         font-weight: 400;
         font-size: 14px;
         line-height: calc(19 / 14);
@@ -98,6 +108,8 @@
     &__date-link-wrapper {
         display: flex;
         justify-content: space-between;
+
+        margin-top: auto;
     }
 
     &__date {
@@ -121,6 +133,7 @@
     &__btn {
         position: absolute;
         right: 8;
+        // bottom: 250;
         transform: translateY(895%);
 
         display: flex;
@@ -144,11 +157,13 @@
         @media screen and (min-width: 768px) {
             right: 12;
             transform: translateY(1115%);
+            // bottom: 300;
         }
 
         @media screen and (min-width: 1280px) {
             right: 12;
             transform: translateY(1260%);
+            // bottom: 300;
         }
     }
 
@@ -207,7 +222,7 @@
 
     &__item-weather-tablet {
         width: 353px;
-        height: 633px;
+        height: 675px;
 
         background-color: $accent-color;
 

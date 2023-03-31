@@ -1,7 +1,10 @@
 import localStorageAPI from './storage';
+
+const newsListEl = document.querySelector('.news__list')
+
 let favoriteNews = localStorageAPI.load("favorite-news") || []
 
-document.addEventListener("click", function (e) {
+function addRemoveLocalStorage(e) {
     const targetBtn = e.target.closest(".news__btn");
     const targetItem = e.target.closest(".news__item");
 
@@ -13,7 +16,7 @@ document.addEventListener("click", function (e) {
 
     if (targetBtn.classList.contains("fav")) {
         const favoriteNew = {
-            id: e.target.parentNode.id,
+            uri: e.target.parentNode.id,
             src: targetItem.children[0].src,
             alt: targetItem.children[0].alt,
             title: targetItem.children[1].textContent,
@@ -28,12 +31,13 @@ document.addEventListener("click", function (e) {
     }
 
     if (!targetBtn.classList.contains("fav")) {
-        const favoriteNewsRemove = localStorageAPI.load("favorite-news").filter(item => item.id !== e.target.parentNode.id)
+        const favoriteNewsRemove = localStorageAPI.load("favorite-news").filter(item => item.uri !== e.target.parentNode.id)
         localStorageAPI.remove("favorite-news")
         localStorageAPI.save("favorite-news", favoriteNewsRemove)
         favoriteNews = favoriteNewsRemove
     }
-    
-});
+}
+
+newsListEl.addEventListener("click", addRemoveLocalStorage)
 
 

@@ -86,12 +86,9 @@ function getFetchValue(e) {
     return 
   }
   keyword = e.target.textContent
-  console.log(keyword)
   // keyword = keyword.trim()
   keyword = keyword.split(' ').join('')
-  console.log(keyword)
   keyword = keyword.toLowerCase()
-  console.log(keyword)
 }
 filterCategoriesListEl.addEventListener('click', getFetchValue)
 categoriesDropdownListEl.addEventListener('click', getFetchValue)
@@ -107,7 +104,7 @@ async function makeFetch(keyword) {
 
 // Функция для отрисовки разметки по запросу
 function createMarkupNewsCards(array) {    
-    return array.slice(0, 8).map(item => {
+  return array.slice(0, 8).map(item => {
       let imageBase
       let imageCaption
       if (item.multimedia === null) {
@@ -122,7 +119,7 @@ function createMarkupNewsCards(array) {
       let formattedDate = Array.from(formatDate)
       formattedDate = formattedDate[8] + formattedDate[9] + formattedDate[7] + formattedDate[5] +formattedDate[6] + formattedDate[4] + formattedDate[0] + formattedDate[1] + formattedDate[2] + formattedDate[3]
 
-      return `<li class="news__item theme-light">
+      return `<li class="news__item theme-light" id="${item.uri}">
       <img
         src="${imageBase}"
         alt="${imageCaption}"

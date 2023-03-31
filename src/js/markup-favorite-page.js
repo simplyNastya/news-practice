@@ -1,10 +1,14 @@
 import svg from '../images/symbol-defs.svg'
+import localStorageAPI from './storage'
 
-appendMarkup(localStorageAPI.load("favourite-news"))    
+const favoriteListEl = document.querySelector(".favorite__list")
+const favoriteNewsArray = localStorageAPI.load("favorite-news")
 
-function createMarkupFavoriteNews(array) {
-        return array.map(({id, src, alt, title, subtitle, date, href, category}) => {
-            return `<li id="${id}" class="favorite__item theme-light">
+console.log(favoriteNewsArray)
+
+function createMarkupFavoriteNews() {
+      return favoriteNewsArray.map(({uri, src, alt, title, subtitle, date, href, category}) => {
+            return `<li id="${uri}" class="favorite__item theme-light">
       <img
         src="${src}"
         alt="${alt}"
@@ -38,7 +42,9 @@ function createMarkupFavoriteNews(array) {
             .join('')
     }
 
-    function appendMarkup(array) {
-        const markup = createMarkupFavoriteNews(array)
-    newsFavListEl.innerHTML = markup
+function appendMarkup() {
+    const markup = createMarkupFavoriteNews()
+    favoriteListEl.insertAdjacentHTML("beforeend", markup)
 }
+
+appendMarkup()
