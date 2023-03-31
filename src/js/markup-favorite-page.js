@@ -7,8 +7,6 @@ const favoriteNewsTitle = document.querySelector(".favorite__section-title")
 
 const favoriteNewsArray = localStorageAPI.load("favorite-news")
 
-console.log(favoriteNewsArray)
-
 function createMarkupFavoriteNews() {
 
   if (!favoriteNewsArray || !favoriteNewsArray.length) {
@@ -57,3 +55,4 @@ function appendMarkup() {
 }
 
 appendMarkup()
+
