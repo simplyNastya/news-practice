@@ -168,11 +168,29 @@
         }
     }
     
-    &__btn-icon {
+    &__btn-icon-add {
         width: 16px;
         height: 16px;
 
-        // fill: none;
+        position: absolute;
+        bottom: 305px;
+        right: 20px;
+
+        fill: transparent;
+        background-color: transparent;
+    }
+
+    &__btn-icon-remove {
+        opacity: 0;
+        width: 16px;
+        height: 16px;
+
+        position: absolute;
+        bottom: 305px;
+        right: 24px;
+
+        fill: $accent-color;
+        background-color: transparent;
     }
 
     &__category {
@@ -331,8 +349,12 @@
     }
 }
 
-.fav .news__btn-icon {
-    fill: $accent-color !important;
+.news__btn.fav~.news__btn-icon-remove {
+    opacity: 1;
+}
+
+.news__btn.fav~.news__btn-icon-add {
+    opacity: 0;
 }
 
 .visible {

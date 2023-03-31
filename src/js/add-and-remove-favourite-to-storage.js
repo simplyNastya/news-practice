@@ -1,4 +1,5 @@
 import localStorageAPI from './storage';
+import svg from '../images/symbol-defs.svg'
 
 const newsListEl = document.querySelector('.news__list')
 
@@ -26,11 +27,15 @@ function addRemoveLocalStorage(e) {
             category: targetItem.children[5].textContent
         }
 
+        targetBtn.textContent = "Remove from favorite"
+        targetBtn.style.width = "168px"
         favoriteNews.push(favoriteNew)
         localStorageAPI.save("favorite-news", favoriteNews)
     }
 
     if (!targetBtn.classList.contains("fav")) {
+        targetBtn.textContent = "Add to favorite"
+        targetBtn.style.width = "126px"
         const favoriteNewsRemove = localStorageAPI.load("favorite-news").filter(item => item.uri !== e.target.parentNode.id)
         localStorageAPI.remove("favorite-news")
         localStorageAPI.save("favorite-news", favoriteNewsRemove)
