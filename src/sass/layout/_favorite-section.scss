@@ -166,8 +166,7 @@
     &__btn {
         position: absolute;
         right: 8;
-        // bottom: 250;
-        transform: translateY(895%);
+        bottom: 250;
 
         display: flex;
         align-items: center;
@@ -189,14 +188,12 @@
 
         @media screen and (min-width: 768px) {
             right: 12;
-            transform: translateY(1115%);
-            // bottom: 300;
+            bottom: 300;
         }
 
         @media screen and (min-width: 1280px) {
             right: 12;
-            transform: translateY(1260%);
-            // bottom: 300;
+            bottom: 300;
         }
     }
 
