@@ -2,12 +2,12 @@ import localStorageAPI from './storage'
 import svg from '../images/symbol-defs.svg'
 
 const alreadyReadListEl = document.querySelector(".read__dropdown-content-list")
-const favoriteNewsTitle = document.querySelector(".favorite__section-title")
+// const favoriteNewsTitle = document.querySelector(".favorite__section-title")
 
 const alreadyReadArray = localStorageAPI.load("already-read-news") || []
 
 function createMarkupAlreadyReadNews() {
-      return alreadyReadArray.map(({uri, src, alt, title, subtitle, date, href, category}) => {
+  return alreadyReadArray.map(({ uri, src, alt, title, subtitle, date, href, category }) => {
             return `<li
                 class="read__dropdown-content-item theme-light"
                 id="${uri}"
@@ -42,13 +42,17 @@ function createMarkupAlreadyReadNews() {
                   class="read__dropdown-content-btn theme-light"
                 >
                   Add to favorite
-                  <svg
-                    style="fill: none"
-                    class="read__dropdown-content-btn-icon theme-light"
+                </button>
+                <svg
+                    class="read__dropdown-content-btn-icon-add theme-light"
                   >
                     <use href="${svg}#icon-heart"></use>
                   </svg>
-                </button>
+                  <svg
+                    class="read__dropdown-content-btn-icon-remove theme-light"
+                  >
+                    <use href="${svg}#icon-heart"></use>
+                  </svg>
                 <p class="read__dropdown-content-category theme-light">
                   ${category}
                 </p>

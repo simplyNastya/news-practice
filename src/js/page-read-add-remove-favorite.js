@@ -1,13 +1,13 @@
 import localStorageAPI from './storage';
 import svg from '../images/symbol-defs.svg'
 
-const newsListEl = document.querySelector('.news__list')
+const alreadyReadListEl = document.querySelector(".read__dropdown-content-list")
 
 let favoriteNews = localStorageAPI.load("favorite-news") || []
 
 function addRemoveLocalStorage(e) {
-    const targetBtn = e.target.closest(".news__btn");
-    const targetItem = e.target.closest(".news__item");
+    const targetBtn = e.target.closest(".read__dropdown-content-btn");
+    const targetItem = e.target.closest(".read__dropdown-content-item");
 
     if (e.target.nodeName !== `BUTTON`) {
         return;
@@ -43,4 +43,4 @@ function addRemoveLocalStorage(e) {
     }
 }
 
-newsListEl.addEventListener("click", addRemoveLocalStorage)
+alreadyReadListEl.addEventListener("click", addRemoveLocalStorage)

@@ -253,13 +253,35 @@
             right: 12;
             bottom: 300;
         }
+
+        &:hover {
+            box-shadow: 0px 4px 5px $light-theme-primary-font-color;
+        }
     }
 
-    &__dropdown-content-btn-icon {
+    &__dropdown-content-btn-icon-add {
         width: 16px;
         height: 16px;
 
-        // fill: none;
+        position: absolute;
+        bottom: 305px;
+        right: 20px;
+
+        fill: transparent;
+        background-color: transparent;
+    }
+
+    &__dropdown-content-btn-icon-remove {
+        opacity: 0;
+        width: 16px;
+        height: 16px;
+
+        position: absolute;
+        bottom: 305px;
+        right: 24px;
+
+        fill: $accent-color;
+        background-color: transparent;
     }
 
     &__dropdown-content-category {
@@ -315,4 +337,12 @@
 
 .invisible-content {
     display: none;
+}
+
+.read__dropdown-content-btn.fav~.read__dropdown-content-btn-icon-remove {
+    opacity: 1;
+}
+
+.read__dropdown-content-btn.fav~.read__dropdown-content-btn-icon-add {
+    opacity: 0;
 }

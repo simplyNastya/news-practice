@@ -18,14 +18,14 @@ function addAlreadyReadToLocalStorage(e) {
 
     if (targetLink.classList.contains("read")) {
         const alreadyReadNew = {
-            uri: e.target.parentNode.id,
+            uri: targetItem.id,
             src: targetItem.children[0].src,
             alt: targetItem.children[0].alt,
             title: targetItem.children[1].textContent,
             subtitle: targetItem.children[2].textContent,
             date: targetItem.children[3].children[0].textContent,
             href: targetItem.children[3].children[1].href,
-            category: targetItem.children[5].textContent
+            category: targetItem.children[7].textContent
         }
 
         alreadyReadNews.push(alreadyReadNew)
