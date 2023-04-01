@@ -23,7 +23,8 @@ function addAlreadyReadToLocalStorage(e) {
             subtitle: targetItem.children[2].textContent,
             date: targetItem.children[3].children[0].textContent,
             href: targetItem.children[3].children[1].href,
-            category: targetItem.children[5].textContent
+            category: targetItem.children[5].textContent,
+            dateOfRead: new Date().toLocaleString().split(',')[0]
         }
 
         alreadyReadNews.push(alreadyReadNew)

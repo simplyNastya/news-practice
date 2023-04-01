@@ -4,7 +4,7 @@ const alreadyReadListEl = document.querySelector(".read__dropdown-content-list")
 
 let favoriteNews = localStorageAPI.load("favorite-news") || []
 
-function addRemoveLocalStorage(e) {
+export function addRemoveLocalStorage(e) {
     const targetBtn = e.target.closest(".read__dropdown-content-btn");
     const targetItem = e.target.closest(".read__dropdown-content-item");
 

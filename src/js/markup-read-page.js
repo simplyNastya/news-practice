@@ -1,16 +1,30 @@
 import localStorageAPI from './storage'
+// import imgOps from '../images/desctop/news-main-img.png'
 import svg from '../images/symbol-defs.svg'
 
 const alreadyReadListEl = document.querySelector(".read__dropdown-content-list")
-// const favoriteNewsTitle = document.querySelector(".favorite__section-title")
+const adminBtn = document.querySelector('.read__dropdown-content-admin-btn')
+const adminBtnWrapper = document.querySelector('.read__dropdown-wrapper')
 
 const alreadyReadArray = localStorageAPI.load("already-read-news") || []
 
 function createMarkupAlreadyReadNews() {
-  return alreadyReadArray.map(({ uri, src, alt, title, subtitle, date, href, category }) => {
+  const uniqueDates = alreadyReadArray.reduce((dates, { dateOfRead }) => {
+    if (!dates.includes(dateOfRead)) {
+      dates.push(dateOfRead);
+    }
+    return dates;
+  }, []);
+
+  const markupDates = uniqueDates.map((date) => {
+    return `<button class="read__dropdown-content-admin-btn theme-light">${date}</button>`;
+  }).join('');
+
+  const markupNews = alreadyReadArray.map(({ uri, src, alt, title, subtitle, date, href, category, dateOfRead }) => {
             return `<li
                 class="read__dropdown-content-item theme-light"
                 id="${uri}"
+                data-date="${dateOfRead}"
               >
                 <img
                   src="${src}"
@@ -66,12 +80,13 @@ function createMarkupAlreadyReadNews() {
                 </p>
               </li>`
         })
-            .join('')
-    }
+    .join('')
+  
+  alreadyReadListEl.innerHTML = '';
+  // adminBtnWrapper.innerHTML = markupDates;
 
-function appendMarkup() {
-    const markup = createMarkupAlreadyReadNews()
-    alreadyReadListEl.insertAdjacentHTML("beforeend", markup)
+  alreadyReadListEl.insertAdjacentHTML('beforeend', markupDates);
+  alreadyReadListEl.insertAdjacentHTML('beforeend', markupNews);
 }
 
-appendMarkup()
+adminBtn.addEventListener('click', createMarkupAlreadyReadNews)
