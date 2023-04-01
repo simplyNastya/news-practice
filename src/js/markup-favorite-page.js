@@ -51,7 +51,21 @@ function createMarkupFavoriteNews() {
 
 function appendMarkup() {
     const markup = createMarkupFavoriteNews()
-    favoriteListEl.insertAdjacentHTML("beforeend", markup)
+  favoriteListEl.insertAdjacentHTML("beforeend", markup)
+  
+  favoriteNewsArray.map(item => {
+    const alreadyReadNews = localStorageAPI.load("already-read-news") || []
+    alreadyReadNews.forEach(news => {
+      if (news.uri === item.uri) {
+        const newsItem = document.getElementById(news.uri)
+        if (newsItem) {
+          const readLink = newsItem.querySelector('.favorite__link')
+          readLink.classList.add('read')
+          newsItem.style.opacity = '0.8'
+    }
+    }
+    })
+  })
 }
 
 appendMarkup()
