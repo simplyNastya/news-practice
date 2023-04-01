@@ -226,6 +226,7 @@
     }
 
     &__already-read {
+        opacity: 0;
         position: absolute;
         top: 14;
         right: 14;
@@ -280,4 +281,8 @@
             display: block;
         }
     }
+}
+
+.favorite__link.read~.favorite__already-read {
+    opacity: 1;
 }

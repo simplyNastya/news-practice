@@ -356,6 +356,10 @@
     opacity: 0;
 }
 
+.news__link.read~.news__already-read {
+    opacity: 1;
+}
+
 .visible {
     opacity: 1;
 }

@@ -1,5 +1,4 @@
 import localStorageAPI from './storage';
-import svg from '../images/symbol-defs.svg'
 
 const alreadyReadListEl = document.querySelector(".read__dropdown-content-list")
 

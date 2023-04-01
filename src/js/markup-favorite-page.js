@@ -30,6 +30,12 @@ function createMarkupFavoriteNews() {
       <div class="favorite__date-link-wrapper theme-light">
         <p class="favorite__date theme-light">${date}</p>
         <a href="${href}" target="_blank" rel="noopener noreferrer" class="favorite__link theme-light">Read more</a>
+        <p class="favorite__already-read">
+              Already read
+              <svg class="favorite__already-read-icon">
+                <use href="${svg}#icon-icon-check"></use>
+              </svg>
+            </p>
       </div>
       <button type="button" class="favorite__btn theme-light">
         Remove from favorite
@@ -38,12 +44,6 @@ function createMarkupFavoriteNews() {
         </svg>
       </button>
       <p class="favorite__category theme-light">${category}</p>
-      <p class="favorite__already-read">
-              Already read
-              <svg class="favorite__already-read-icon">
-                <use href="${svg}#icon-icon-check"></use>
-              </svg>
-            </p>
       </li>`
         })
             .join('')

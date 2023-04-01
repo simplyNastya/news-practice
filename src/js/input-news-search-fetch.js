@@ -53,6 +53,12 @@ function createMarkupNewsCards(array) {
         <div class="news__date-link-wrapper">
           <p class="news__date">${formattedDate}</p>
           <a href="${item.web_url}" target="_blank" rel="noopener noreferrer" class="news__link">Read more</a>
+          <p class="news__already-read">
+          Already read
+          <svg class="news__already-read-icon">
+            <use href="${svg}#icon-icon-check"></use>
+          </svg>
+        </p>
         </div>
         <button type="button" class="news__btn theme-light">
           Add to favorite

@@ -1,12 +1,12 @@
 import localStorageAPI from './storage';
 
-const newsListEl = document.querySelector('.news__list')
+const favoriteListEl = document.querySelector(".favorite__list")
 
 let alreadyReadNews = localStorageAPI.load("already-read-news") || []
 
 function addAlreadyReadToLocalStorage(e) {
-    const targetLink = e.target.closest(".news__link");
-    const targetItem = e.target.closest(".news__item");
+    const targetLink = e.target.closest(".favorite__link");
+    const targetItem = e.target.closest(".favorite__item");
     
     if (e.target.nodeName !== `A`) {
         return;
@@ -23,7 +23,7 @@ function addAlreadyReadToLocalStorage(e) {
             subtitle: targetItem.children[2].textContent,
             date: targetItem.children[3].children[0].textContent,
             href: targetItem.children[3].children[1].href,
-            category: targetItem.children[7].textContent
+            category: targetItem.children[5].textContent
         }
 
         alreadyReadNews.push(alreadyReadNew)
@@ -32,4 +32,4 @@ function addAlreadyReadToLocalStorage(e) {
     }
 }
 
-newsListEl.addEventListener("click", addAlreadyReadToLocalStorage)
+favoriteListEl.addEventListener("click", addAlreadyReadToLocalStorage)
