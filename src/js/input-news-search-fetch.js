@@ -96,7 +96,19 @@ function appendMarkup(array) {
           favoriteBtn.style.width = '168px'
     }
     }
-  })
+    })
+    
+    const alreadyReadNews = localStorageAPI.load("already-read-news") || []
+        alreadyReadNews.forEach(news => {
+      if (news.uri === item.uri) {
+        const newsItem = document.getElementById(news.uri)
+        if (newsItem) {
+          const readLink = newsItem.querySelector('.news__link')
+          readLink.classList.add('read')
+          newsItem.style.opacity = '0.8'
+    }
+    }
+    })
   })
     // containerWeather.insertAdjacentHTML('afterend', createMarkupWeather())
 }
