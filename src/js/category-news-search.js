@@ -105,6 +105,7 @@ async function makeFetch(keyword) {
 // Функция для отрисовки разметки по запросу
 function createMarkupNewsCards(array) {    
   return array.slice(0, 8).map(item => {
+    console.log(item)
       let imageBase
       let imageCaption
       if (item.multimedia === null) {
