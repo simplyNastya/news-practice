@@ -8,8 +8,6 @@ function addRemoveLocalStorage(e) {
     const targetBtn = e.target.closest(".news__btn");
     const targetItem = e.target.closest(".news__item");
 
-    console.log(targetItem)
-
     if (e.target.nodeName !== `BUTTON`) {
         return;
     }
