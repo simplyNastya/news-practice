@@ -64,7 +64,8 @@ async function makeFetchDateAndCategory(selectedDate, categoryKeyword) {
 }
 
 function createMarkupByDateAndCategory(array) {    
-    return array.slice(0, 8).map(item => {
+  return array.slice(0, 8).map(item => {
+      console.log(item)
         let imageStart
         let imageBase
         if (item.multimedia.length > 0) {
@@ -78,7 +79,7 @@ function createMarkupByDateAndCategory(array) {
         let formattedDate = Array.from(formatDate)
         formattedDate = formattedDate[8] + formattedDate[9] + formattedDate[7] + formattedDate[5] + formattedDate[6] + formattedDate[4] + formattedDate[0] + formattedDate[1] + formattedDate[2] + formattedDate[3]
 
-        return `<li class="news__item theme-light" id="${item._id}">
+        return `<li class="news__item theme-light" id="${item.uri}">
         <img
           src="${imageBase}"
           alt="${item.section_name}"
@@ -96,10 +97,13 @@ function createMarkupByDateAndCategory(array) {
         </div>
         <button type="button" class="news__btn theme-light">
           Add to favorite
-          <svg class="news__btn-icon theme-light">
+        </button>
+          <svg class="news__btn-icon-add theme-light">
             <use href="${svg}#icon-heart"></use>
           </svg>
-        </button>
+          <svg class="news__btn-icon-remove theme-light">
+            <use href="${svg}#icon-heart"></use>
+          </svg>
         <p class="news__category theme-light">${item.section_name}</p>
       </li>`
     }).join('')

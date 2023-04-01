@@ -38,7 +38,7 @@ function createMarkupNewsCards(array) {
         let formattedDate = Array.from(formatDate)
         formattedDate = formattedDate[8] + formattedDate[9] + formattedDate[7] + formattedDate[5] + formattedDate[6] + formattedDate[4] + formattedDate[0] + formattedDate[1] + formattedDate[2] + formattedDate[3]
 
-        return `<li class="news__item" id="${item._id}">
+        return `<li class="news__item" id="${item.uri}">
         <img
           src="${imageBase}"
           alt="${item.section_name}"
