@@ -1,6 +1,7 @@
 import axios from "axios"
 import noImage from '../images/desctop/no-image-available.png'
 import svg from '../images/symbol-defs.svg'
+import localStorageAPI from './storage'
 
 const newsListEl = document.querySelector('.news__list')
 
@@ -14,8 +15,8 @@ async function makeFetch() {
 
 function createMarkupNewsCards(array) {    
   return array.slice(0, 8).map(item => {
-        let imageBase
-        let imageCaption
+    let imageBase
+    let imageCaption
 
         if (item.media.length > 0) {
             imageBase = item.media[0]['media-metadata'][2].url
@@ -66,8 +67,23 @@ function createMarkupNewsCards(array) {
 }
 
 function appendMarkup(array) {
-    const markup = createMarkupNewsCards(array)
-    newsListEl.innerHTML = markup
+  const markup = createMarkupNewsCards(array)
+  newsListEl.innerHTML = markup
+  
+  array.map(item => {
+    const favoriteNews = localStorageAPI.load("favorite-news") || []
+    favoriteNews.forEach(news => {
+      if (news.uri === item.uri) {
+        const newsItem = document.getElementById(news.uri)
+        if (newsItem) {
+          const favoriteBtn = newsItem.querySelector('.news__btn')
+          favoriteBtn.classList.add('fav')
+          favoriteBtn.textContent = 'Remove from favorite'
+          favoriteBtn.style.width = '168px'
+    }
+    }
+  })
+  })
 }
 
 function handleFetch() {

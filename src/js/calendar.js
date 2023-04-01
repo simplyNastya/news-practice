@@ -1,6 +1,7 @@
 import flatpickr from "flatpickr"
 import "flatpickr/dist/flatpickr.min.css";
 import axios from "axios"
+import localStorageAPI from './storage'
 import imgOps from '../images/desctop/news-main-img.png'
 import noImage from '../images/desctop/no-image-available.png'
 import svg from '../images/symbol-defs.svg'
@@ -116,7 +117,22 @@ function createMarkupByDateAndCategory(array) {
 
 function appendMarkup(array) {
     const markup = createMarkupByDateAndCategory(array)
-    newsListEl.innerHTML = markup
+  newsListEl.innerHTML = markup
+  
+  array.map(item => {
+    const favoriteNews = localStorageAPI.load("favorite-news") || []
+    favoriteNews.forEach(news => {
+      if (news.uri === item.uri) {
+        const newsItem = document.getElementById(news.uri)
+        if (newsItem) {
+          const favoriteBtn = newsItem.querySelector('.news__btn')
+          favoriteBtn.classList.add('fav')
+          favoriteBtn.textContent = 'Remove from favorite'
+          favoriteBtn.style.width = '168px'
+    }
+    }
+  })
+  })
 }
 
 function createMarkupIfNoResultsByFetch() {

@@ -85,8 +85,23 @@ function createMarkupAlreadyReadNews() {
   alreadyReadListEl.innerHTML = '';
   // adminBtnWrapper.innerHTML = markupDates;
 
-  alreadyReadListEl.insertAdjacentHTML('beforeend', markupDates);
+  adminBtn.insertAdjacentHTML('beforeend', markupDates);
   alreadyReadListEl.insertAdjacentHTML('beforeend', markupNews);
+
+  // alreadyReadArray.map(item => {
+  //   const favoriteNews = localStorageAPI.load("favorite-news") || []
+  //   favoriteNews.forEach(news => {
+  //     if (news.uri === item.uri) {
+  //       const newsItem = document.getElementById(news.uri)
+  //       if (newsItem) {
+  //         const favoriteBtn = newsItem.querySelector('.news__btn')
+  //         favoriteBtn.classList.add('fav')
+  //         favoriteBtn.textContent = 'Remove from favorite'
+  //         favoriteBtn.style.width = '168px'
+  //   }
+  //   }
+  // })
+  // })
 }
 
 adminBtn.addEventListener('click', createMarkupAlreadyReadNews)

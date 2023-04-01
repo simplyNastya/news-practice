@@ -43,3 +43,17 @@ function addRemoveLocalStorage(e) {
 }
 
 newsListEl.addEventListener("click", addRemoveLocalStorage)
+
+// window.addEventListener('load', (event) => {
+//   favoriteNews.forEach(news => {
+//       const newsItem = document.getElementById(news.uri)
+//       console.log('hi')
+      
+//     if (newsItem) {
+//       const favoriteBtn = newsItem.querySelector('.news__btn')
+//       favoriteBtn.classList.add('fav')
+//       favoriteBtn.textContent = 'Remove from favorite'
+//       favoriteBtn.style.width = '168px'
+//     }
+//   })
+// })
