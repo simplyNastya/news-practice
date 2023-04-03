@@ -104,4 +104,4 @@ function createMarkupAlreadyReadNews() {
   })
 }
 
-adminBtn.addEventListener('click', createMarkupAlreadyReadNews)
+createMarkupAlreadyReadNews()
