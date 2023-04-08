@@ -101,7 +101,8 @@ function appendMarkup(array) {
 function handleFetch() {
     makeFetch()
         .then(() => {
-            appendMarkup(data.results)
+          appendMarkup(data.results)
+          // console.log(data)
         })
         .catch(error => {
         console.log(error)

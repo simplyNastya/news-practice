@@ -19,10 +19,12 @@ const othersDropdownListEl = document.querySelector('.dropdown-tablet__content-l
 
 const newsListEl = document.querySelector('.news__list')
 
+const loadMoreBtnEl = document.querySelector('.loadMore')
+
 const API_KEY = 'B0nM5YVwVGPOQpaqXoXzd3AxL5Kpg75H'
 let keyword
 let data
-let page = 1
+let page = 0
 
 // Клик на кнопку Categories откривает список
 function showCategoriesList() {
@@ -60,7 +62,7 @@ function unshowOthersList() {
 
 // Запрос на бекенд для получения категорий
 async function getCetegoryList() {
-    const response = await axios.get(`https://api.nytimes.com/svc/news/v3/content/section-list.json?api-key=${API_KEY}`)
+    const response = await axios.get(`https://api.nytimes.com/svc/news/v3/content/section-list.json?&api-key=${API_KEY}`)
 
     const markupOthers = response.data.results.map(({ display_name }, index) => {
          if (index > 5) {
@@ -98,15 +100,14 @@ othersDropdownListEl.addEventListener('click', getFetchValue)
 
 // Делаем функцию для получения результата запроса
 async function makeFetch(keyword) {
-  const response = await axios.get(`https://api.nytimes.com/svc/news/v3/content/nyt/${keyword}.json?page=${page}&sort=newest&api-key=${API_KEY}`)
+  const response = await axios.get(`https://api.nytimes.com/svc/news/v3/content/nyt/${keyword}.json?page=${page}&limit=8&sort=newest&api-key=${API_KEY}`)
   data = await response.data
   return data
 }
 
 // Функция для отрисовки разметки по запросу
 function createMarkupNewsCards(array) {    
-  return array.slice(0, 8).map(item => {
-    console.log(item)
+  return array.map(item => {
       let imageBase
       let imageCaption
       if (item.multimedia === null) {
@@ -198,7 +199,6 @@ function handleFetch() {
       return
     }
     appendMarkup(data.results)
-    page += 1
     unshowCategoriesList()
 
     unshowOthersList()
