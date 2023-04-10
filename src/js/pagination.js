@@ -24,41 +24,41 @@ const btn6El = document.getElementById('btn-6')
 // btn5El.addEventListener('click', superOnClick)
 // btn6El.addEventListener('click', superOnClick)
 
-import axios from "axios";
-import Notiflix from 'notiflix';
+// import axios from "axios";
+// import Notiflix from 'notiflix';
 
-const API_KEY = 'B0nM5YVwVGPOQpaqXoXzd3AxL5Kpg75H';
+// const API_KEY = 'B0nM5YVwVGPOQpaqXoXzd3AxL5Kpg75H';
 
-export default class NewsApiService {
-    constructor() {
-        this.keyword = '';
-        this.page = 0;
-    }
+// export default class NewsApiService {
+//     constructor() {
+//         this.keyword = '';
+//         this.page = 0;
+//     }
 
-    async makeFetch() {
-        const response = await axios.get(`https://api.nytimes.com/svc/news/v3/content/nyt/${keyword}.json?page=${page}&limit=8&sort=newest&api-key=${API_KEY}`)
-        const data = await response.data
-        if (data.hits.length === 0) {
-            Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.') 
-        }
-        this.incrementPage()
+//     async makeFetch() {
+//         const response = await axios.get(`https://api.nytimes.com/svc/news/v3/content/nyt/${keyword}.json?page=${page}&limit=8&sort=newest&api-key=${API_KEY}`)
+//         const data = await response.data
+//         if (data.hits.length === 0) {
+//             Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.') 
+//         }
+//         this.incrementPage()
         
-        return data
-    }
+//         return data
+//     }
 
-    incrementPage() {
-        this.page += 1;
-    }
+//     incrementPage() {
+//         this.page += 1;
+//     }
 
-    resetPage() {
-        this.page = 1;
-    }
+//     resetPage() {
+//         this.page = 1;
+//     }
 
-    get query() {
-        return this.inputValue;
-    }
+//     get query() {
+//         return this.inputValue;
+//     }
 
-    set query(newInputValue) {
-        this.inputValue = newInputValue;
-    }
-}
+//     set query(newInputValue) {
+//         this.inputValue = newInputValue;
+//     }
+// }

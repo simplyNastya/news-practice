@@ -89,9 +89,10 @@ function getFetchValue(e) {
     return 
   }
   keyword = e.target.textContent
-  // keyword = keyword.trim()
+  keyword = keyword.trim()
   keyword = keyword.split(' ').join('')
   keyword = keyword.toLowerCase()
+  console.log(keyword)
 }
 filterCategoriesListEl.addEventListener('click', getFetchValue)
 categoriesDropdownListEl.addEventListener('click', getFetchValue)
