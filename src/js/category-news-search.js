@@ -17,14 +17,27 @@ const filterCategoriesListEl = document.querySelector('.filter-tablet__list')
 const categoriesDropdownListEl = document.querySelector('.dropdown__content-list')
 const othersDropdownListEl = document.querySelector('.dropdown-tablet__content-list')
 
+
+const prevBtnEl = document.querySelector('.pagination__prevBtn')
+const nextBtnEl = document.querySelector('.pagination__nextBtn')
+const btn1El = document.getElementById('btn-1')
+const btn2El = document.getElementById('btn-2')
+const btn3El = document.getElementById('btn-3')
+const btn4El = document.getElementById('btn-4')
+const btn5El = document.getElementById('btn-5')
+const btn6El = document.getElementById('btn-6')
+
+
+
 const newsListEl = document.querySelector('.news__list')
 
-const loadMoreBtnEl = document.querySelector('.loadMore')
+// const loadMoreBtnEl = document.querySelector('.loadMore')
 
 const API_KEY = 'B0nM5YVwVGPOQpaqXoXzd3AxL5Kpg75H'
 let keyword
 let data
-let page = 0
+var numAllArticle
+let page = 1
 
 // Клик на кнопку Categories откривает список
 function showCategoriesList() {
@@ -92,7 +105,6 @@ function getFetchValue(e) {
   keyword = keyword.trim()
   keyword = keyword.split(' ').join('')
   keyword = keyword.toLowerCase()
-  console.log(keyword)
 }
 filterCategoriesListEl.addEventListener('click', getFetchValue)
 categoriesDropdownListEl.addEventListener('click', getFetchValue)
@@ -100,9 +112,10 @@ othersDropdownListEl.addEventListener('click', getFetchValue)
 
 
 // Делаем функцию для получения результата запроса
-async function makeFetch(keyword) {
-  const response = await axios.get(`https://api.nytimes.com/svc/news/v3/content/nyt/${keyword}.json?page=${page}&limit=8&sort=newest&api-key=${API_KEY}`)
+async function makeFetch(keyword, page) {
+  const response = await axios.get(`https://api.nytimes.com/svc/news/v3/content/nyt/${keyword}.json?limit=8&page=${page}&sort=newest&api-key=${API_KEY}`)
   data = await response.data
+  numAllArticle = data.num_results
   return data
 }
 
@@ -194,7 +207,7 @@ function appendMarkup(array) {
 
 // Делаем запрос на бекенд по ключевому слову, которое получили с категории
 function handleFetch() {
-  makeFetch(keyword)
+  makeFetch(keyword, page)
   .then(data => {
     if (keyword === '') {
       return
@@ -203,6 +216,8 @@ function handleFetch() {
     unshowCategoriesList()
 
     unshowOthersList()
+    console.log(page)
+    console.log('hi')
   })
   .catch((error) => {
     console.log(error)
@@ -211,3 +226,26 @@ function handleFetch() {
 categoriesDropdownListEl.addEventListener('click', handleFetch)
 othersDropdownListEl.addEventListener('click', handleFetch)
 filterCategoriesListEl.addEventListener('click', handleFetch)
+
+
+
+nextBtnEl.addEventListener('click', () => {
+  if (numAllArticle < 8) {
+    return
+  }
+  page += 1
+  numAllArticle -= 8
+  console.log(page)
+  console.log(numAllArticle)
+  handleFetch()
+})
+
+prevBtnEl.addEventListener('click', () => {
+  if (page <= 1) {
+    return
+  }
+  page -= 1
+  numAllArticle += 8
+  console.log(page)
+  console.log(numAllArticle)
+})
