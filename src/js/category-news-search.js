@@ -2,6 +2,7 @@ import axios from "axios"
 import localStorageAPI from './storage'
 import svg from '../images/symbol-defs.svg'
 import noImage from '../images/desctop/no-image-available.png'
+import {unshowCategoriesList, unshowOthersList} from './open-close-categories-news-btn'
 
 const categoriesBtnEl = document.querySelector('.dropdown__content-admin-btn')
 const categoriesDropdownContentWrapperEl = document.querySelector('.dropdown__content-wrapper')
@@ -18,14 +19,14 @@ const categoriesDropdownListEl = document.querySelector('.dropdown__content-list
 const othersDropdownListEl = document.querySelector('.dropdown-tablet__content-list')
 
 
-const prevBtnEl = document.querySelector('.pagination__prevBtn')
-const nextBtnEl = document.querySelector('.pagination__nextBtn')
-const btn1El = document.getElementById('btn-1')
-const btn2El = document.getElementById('btn-2')
-const btn3El = document.getElementById('btn-3')
-const btn4El = document.getElementById('btn-4')
-const btn5El = document.getElementById('btn-5')
-const btn6El = document.getElementById('btn-6')
+// const prevBtnEl = document.querySelector('.pagination__prevBtn')
+// const nextBtnEl = document.querySelector('.pagination__nextBtn')
+// const btn1El = document.getElementById('btn-1')
+// const btn2El = document.getElementById('btn-2')
+// const btn3El = document.getElementById('btn-3')
+// const btn4El = document.getElementById('btn-4')
+// const btn5El = document.getElementById('btn-5')
+// const btn6El = document.getElementById('btn-6')
 
 
 
@@ -37,64 +38,8 @@ const API_KEY = 'B0nM5YVwVGPOQpaqXoXzd3AxL5Kpg75H'
 let keyword
 let data
 var numAllArticle
-let page = 1
+let page = 0
 
-// Клик на кнопку Categories откривает список
-function showCategoriesList() {
-    categoriesDropdownContentWrapperEl.classList.toggle('visible-content')
-    categoriesBtnEl.classList.toggle('change-btn-style')
-    categoriesArrowDownIconEl.classList.toggle('invisible-content')
-    categoriesArrowUpIconEl.classList.toggle('visible-content')
-}
-categoriesBtnEl.addEventListener('click', showCategoriesList)
-
-// Клик на кнопку Others откривает список
-function showOthersList() {
-    othersDropdownContentWrapperEl.classList.toggle('visible-content')
-    othersBtnEl.classList.toggle('change-btn-style')
-    othersArrowDownIconEl.classList.toggle('invisible-content')
-    othersArrowUpIconEl.classList.toggle('visible-content')
-}
-othersBtnEl.addEventListener('click', showOthersList)
-
-// Функция закривает список Categories
-function unshowCategoriesList() {
-    categoriesDropdownContentWrapperEl.classList.remove('visible-content')
-    categoriesBtnEl.classList.remove('change-btn-style')
-    categoriesArrowDownIconEl.classList.remove('invisible-content')
-    categoriesArrowUpIconEl.classList.remove('visible-content')
-}
-
-// Функция закривает список Others
-function unshowOthersList() {
-    othersDropdownContentWrapperEl.classList.remove('visible-content')
-    othersBtnEl.classList.remove('change-btn-style')
-    othersArrowDownIconEl.classList.remove('invisible-content')
-    othersArrowUpIconEl.classList.remove('visible-content')
-}
-
-// Запрос на бекенд для получения категорий
-async function getCetegoryList() {
-    const response = await axios.get(`https://api.nytimes.com/svc/news/v3/content/section-list.json?&api-key=${API_KEY}`)
-
-    const markupOthers = response.data.results.map(({ display_name }, index) => {
-         if (index > 5) {
-           return `<li class="dropdown-tablet__content-item">
-              <button type="button" class="dropdown-tablet__content-btn">
-                ${display_name}
-              </button>
-            </li>`
-        }
-    }).join('')
-    othersDropdownListEl.innerHTML = markupOthers
-
-    const markupCategories = response.data.results.map(({ display_name }) => `<li class="dropdown__content-item">
-            <button type="button" class="dropdown__content-btn">${display_name}</button>
-          </li>`).join('')
-    categoriesDropdownListEl.innerHTML = markupCategories
-    
-}
-getCetegoryList()
 
 // Получаем ключевое слово для запроса
 function getFetchValue(e) {
@@ -102,9 +47,9 @@ function getFetchValue(e) {
     return 
   }
   keyword = e.target.textContent
-  keyword = keyword.trim()
-  keyword = keyword.split(' ').join('')
-  keyword = keyword.toLowerCase()
+  keyword = keyword.includes('%20&%20') ? keyword.replace('%20&%20', '%20').trim().toLowerCase() : keyword.trim().toLowerCase()
+  keyword = keyword.includes('&') ? encodeURIComponent(keyword).trim().toLowerCase() : keyword.trim().toLowerCase()
+
 }
 filterCategoriesListEl.addEventListener('click', getFetchValue)
 categoriesDropdownListEl.addEventListener('click', getFetchValue)
@@ -113,8 +58,9 @@ othersDropdownListEl.addEventListener('click', getFetchValue)
 
 // Делаем функцию для получения результата запроса
 async function makeFetch(keyword, page) {
-  const response = await axios.get(`https://api.nytimes.com/svc/news/v3/content/nyt/${keyword}.json?limit=8&page=${page}&sort=newest&api-key=${API_KEY}`)
+  const response = await axios.get(`https://api.nytimes.com/svc/news/v3/content/all/${keyword}.json?limit=8&page=${page}&sort=newest&api-key=${API_KEY}`)
   data = await response.data
+  console.log(data)
   numAllArticle = data.num_results
   return data
 }
@@ -126,10 +72,15 @@ function createMarkupNewsCards(array) {
       let imageCaption
       if (item.multimedia === null) {
         imageBase = `${noImage}`
-        imageCaption = 'na image'
+        imageCaption = 'no image'
       } else if (item.multimedia !== null) {
-        imageBase = item.multimedia[2].url
-        imageCaption = item.multimedia[0].caption
+        if (item.multimedia.length < 4) {
+          imageBase = item.multimedia[0].url
+          imageCaption = item.multimedia[0].caption
+        } else {
+          imageBase = item.multimedia[2].url
+          imageCaption = item.multimedia[0].caption
+        }
       }
       
       let formatDate = item.published_date.slice(0, 10).replace(/-/g, '/')
@@ -216,8 +167,6 @@ function handleFetch() {
     unshowCategoriesList()
 
     unshowOthersList()
-    console.log(page)
-    console.log('hi')
   })
   .catch((error) => {
     console.log(error)
@@ -229,23 +178,23 @@ filterCategoriesListEl.addEventListener('click', handleFetch)
 
 
 
-nextBtnEl.addEventListener('click', () => {
-  if (numAllArticle < 8) {
-    return
-  }
-  page += 1
-  numAllArticle -= 8
-  console.log(page)
-  console.log(numAllArticle)
-  handleFetch()
-})
+// nextBtnEl.addEventListener('click', () => {
+//   if (numAllArticle < 8) {
+//     return
+//   }
+//   page += 1
+//   numAllArticle -= 8
+//   console.log(page)
+//   console.log(numAllArticle)
+//   handleFetch()
+// })
 
-prevBtnEl.addEventListener('click', () => {
-  if (page <= 1) {
-    return
-  }
-  page -= 1
-  numAllArticle += 8
-  console.log(page)
-  console.log(numAllArticle)
-})
+// prevBtnEl.addEventListener('click', () => {
+//   if (page <= 1) {
+//     return
+//   }
+//   page -= 1
+//   numAllArticle += 8
+//   console.log(page)
+//   console.log(numAllArticle)
+// })

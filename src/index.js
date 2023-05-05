@@ -2,6 +2,7 @@ import './js/header-input-appearence';
 import './js/mobile-menu-open';
 import './js/default-news-section';
 import './js/input-news-search-fetch';
+import './js/open-close-categories-news-btn';
 import './js/category-news-search';
 import './js/calendar';
 import './js/pagination';
