@@ -8,8 +8,6 @@ body {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
 
-    // color: $light-theme-primary-font-color;
-
     overflow-y: scroll;
     scroll-behavior: smooth;
 }
@@ -20,6 +18,16 @@ body {
 }
 
 .theme-dark {
+    color: $white-color;
+    background-color: $dark-theme-bgd-color;
+}
+
+.mobile-menu__container.theme-light {
+    color: $light-theme-primary-font-color;
+    background-color: $white-color;
+}
+
+.mobile-menu__container.theme-dark {
     color: $white-color;
     background-color: $dark-theme-bgd-color;
 }
