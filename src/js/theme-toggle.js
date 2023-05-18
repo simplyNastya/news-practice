@@ -6,6 +6,8 @@ const headerBottomBorderEl = document.querySelector('.header__section')
 const burgerMenuEl = document.querySelector('.header__burger-menu-icon')
 const themeLightTextEl = document.querySelector('.header__theme-text-light')
 const themeDarkTextEl = document.querySelector('.header__theme-text-dark')
+const themeSunEl = document.querySelector('.header__theme-sun-icon')
+const themeMoonEl = document.querySelector('.header__theme-moon-icon')
 const desktopText = document.querySelector('.desktop-text')
 const calendarInput = document.querySelector('.calender__input')
 
@@ -44,6 +46,8 @@ function toggleThemeLight() {
     setTheme('theme-light')
     themeDarkTextEl.style.color = "#111321"
     themeLightTextEl.style.color = "#4440F6"
+       themeMoonEl.style.stroke = "#5F6775"
+       themeSunEl.style.stroke = "#4440F6"
     desktopText.style.color = "#111321"
     calendarInput.style.borderColor = "#111321"
 }
@@ -51,7 +55,9 @@ function toggleThemeLight() {
 function toggleThemeDark() {
     setTheme('theme-dark')
     themeDarkTextEl.style.color = "#4440F6"
-    themeLightTextEl.style.color = "#ffffff"
+    themeLightTextEl.style.color = "#5F6775"
+       themeMoonEl.style.stroke = "#4440F6"
+       themeSunEl.style.stroke = "#5F6775"
     desktopText.style.color = "#ffffff"
     calendarInput.style.borderColor = "#ffffff"
 }
@@ -67,13 +73,17 @@ function immediateInvoke() {
    if (theme === 'theme-dark') {
        setTheme('theme-dark')
         themeDarkTextEl.style.color = "#4440F6"
-        themeLightTextEl.style.color = "#ffffff"
+       themeLightTextEl.style.color = "#5F6775"
+       themeMoonEl.style.stroke = "#4440F6"
+       themeSunEl.style.stroke = "#5F6775"
         desktopText.style.color = "#ffffff"
         calendarInput.style.borderColor = "#ffffff"
    } else {
         setTheme('theme-light')
         themeDarkTextEl.style.color = "#111321"
-        themeLightTextEl.style.color = "#4440F6"
+       themeLightTextEl.style.color = "#4440F6"
+       themeMoonEl.style.stroke = "#5F6775"
+       themeSunEl.style.stroke = "#4440F6"
         desktopText.style.color = "#111321"
         calendarInput.style.borderColor = "#111321"
    }
