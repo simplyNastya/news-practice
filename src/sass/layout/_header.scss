@@ -196,7 +196,20 @@
         }
     }
 
-    &__theme-text {
+    &__theme-text-light {
+        display: none;
+
+        @media screen and (min-width: 1280px) {
+            display: block;
+            
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: calc(24 / 18);
+        }
+    }
+
+    &__theme-text-dark {
         display: none;
 
         @media screen and (min-width: 1280px) {

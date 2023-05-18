@@ -20,6 +20,26 @@ body {
 }
 
 .theme-dark {
-    color: white;
+    color: $white-color;
     background-color: $dark-theme-bgd-color;
+}
+
+input.theme-dark {
+    border-color: $white-color;
+}
+
+input.theme-dark::placeholder {
+    color: $white-color;
+}
+
+form.theme-dark {
+    fill: $white-color;
+}
+
+.header__section.theme-dark{
+    border-bottom-color: rgba(244, 244, 244, 0.2);
+}
+
+.header__burger-menu-icon.theme-dark {
+    stroke: $white-color;
 }

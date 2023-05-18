@@ -120,6 +120,7 @@
 
         padding-left: 44px;
 
+        color: inherit;
         font-family: 'Manrope', sans-serif;
         font-weight: 400;
         font-size: 12px;
@@ -127,7 +128,9 @@
         letter-spacing: 0.02em;
 
         background-color: transparent;
-        border: 1px solid $light-theme-primary-font-color;
+        border-width: 1px;
+        border-style: solid;
+        border-color: $light-theme-primary-font-color;
         border-radius: 20px;
         outline: none;
         cursor: pointer;
@@ -136,6 +139,7 @@
         &:focus {
             color: $white-color;
             background-color: $accent-color;
+            border-color: $accent-color;
         }
 
         &:hover+.calender__icon-calendar,
