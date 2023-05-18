@@ -15,11 +15,13 @@ body {
 .theme-light {
     color: $light-theme-primary-font-color;
     background-color: $light-theme-bgd-color;
+    transition: all 0.5s;
 }
 
 .theme-dark {
     color: $white-color;
     background-color: $dark-theme-bgd-color;
+    transition: all 0.5s;
 }
 
 .mobile-menu__container.theme-light {

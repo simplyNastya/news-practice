@@ -11,6 +11,120 @@ const themeMoonEl = document.querySelector('.header__theme-moon-icon')
 const mobileThemeSunEl = document.querySelector('.mobile-menu__theme-sun-icon')
 const mobileThemeMoonEl = document.querySelector('.mobile-menu__theme-moon-icon')
 const mobileMenuContainerEl = document.querySelector('.mobile-menu__container')
+const toggleContainerEl = document.querySelector('.toggle-container')
+const mobileToggleContainerEl = document.querySelector('.mobile-menu__toggle-container')
+
+const markupToggleLight = `<svg
+        class="header__toggle-icon-light"
+        width="40"
+        height="20"
+        viewBox="0 0 40 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          x="0.30235"
+          y="0.30235"
+          width="39.3953"
+          height="19.3953"
+          rx="9.69765"
+          fill="white"
+        />
+        <circle cx="9" cy="10" r="8" fill="#4B48DB" />
+        <rect
+          x="0.30235"
+          y="0.30235"
+          width="39.3953"
+          height="19.3953"
+          rx="9.69765"
+          stroke="#4B48DB"
+          stroke-width="0.604701"
+        />
+      </svg>`
+
+const markupToggleDark = `<svg
+        class="header__toggle-icon-dark"
+        width="40"
+        height="20"
+        viewBox="0 0 40 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          x="0.30235"
+          y="0.30235"
+          width="39.3953"
+          height="19.3953"
+          rx="9.69765"
+          fill="#4B48DB"
+        />
+        <circle cx="31" cy="10" r="8" fill="white" />
+        <rect
+          x="0.30235"
+          y="0.30235"
+          width="39.3953"
+          height="19.3953"
+          rx="9.69765"
+          stroke="white"
+          stroke-width="0.604701"
+        />
+      </svg>`
+
+const markupMobileToggleLight = `<svg
+        class="mobile-menu__toggle-icon-light"
+        width="40"
+        height="20"
+        viewBox="0 0 40 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          x="0.30235"
+          y="0.30235"
+          width="39.3953"
+          height="19.3953"
+          rx="9.69765"
+          fill="white"
+        />
+        <circle cx="9" cy="10" r="8" fill="#4B48DB" />
+        <rect
+          x="0.30235"
+          y="0.30235"
+          width="39.3953"
+          height="19.3953"
+          rx="9.69765"
+          stroke="#4B48DB"
+          stroke-width="0.604701"
+        />
+      </svg>`
+
+const markupMobileToggleDark = `<svg
+        class="mobile-menu__toggle-icon-dark"
+        width="40"
+        height="20"
+        viewBox="0 0 40 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          x="0.30235"
+          y="0.30235"
+          width="39.3953"
+          height="19.3953"
+          rx="9.69765"
+          fill="#4B48DB"
+        />
+        <circle cx="31" cy="10" r="8" fill="white" />
+        <rect
+          x="0.30235"
+          y="0.30235"
+          width="39.3953"
+          height="19.3953"
+          rx="9.69765"
+          stroke="white"
+          stroke-width="0.604701"
+        />
+      </svg>`
 
 // function to set a given theme/color-scheme
 function setTheme(themeName) {
@@ -27,6 +141,8 @@ function toggleThemeLight() {
     themeSunEl.style.stroke = "#4440F6"
     mobileThemeMoonEl.style.stroke = "#5F6775"
     mobileThemeSunEl.style.stroke = "#4440F6"
+    toggleContainerEl.innerHTML = markupToggleLight
+    mobileToggleContainerEl.innerHTML = markupMobileToggleLight
 }
 
 function toggleThemeDark() {
@@ -37,6 +153,8 @@ function toggleThemeDark() {
     themeSunEl.style.stroke = "#5F6775"
     mobileThemeMoonEl.style.stroke = "#4440F6"
     mobileThemeSunEl.style.stroke = "#5F6775"
+    toggleContainerEl.innerHTML = markupToggleDark
+    mobileToggleContainerEl.innerHTML = markupMobileToggleDark
 }
 
 function toggleElementsColor() {
@@ -79,6 +197,8 @@ function immediateInvoke() {
         themeSunEl.style.stroke = "#5F6775"
         mobileThemeMoonEl.style.stroke = "#4440F6"
         mobileThemeSunEl.style.stroke = "#5F6775"
+        toggleContainerEl.innerHTML = markupToggleDark
+        mobileToggleContainerEl.innerHTML = markupMobileToggleDark
    } else {
         setTheme('theme-light')
         themeDarkTextEl.style.color = "#111321"
@@ -87,6 +207,8 @@ function immediateInvoke() {
         themeSunEl.style.stroke = "#4440F6"
         mobileThemeMoonEl.style.stroke = "#5F6775"
         mobileThemeSunEl.style.stroke = "#4440F6"
+        toggleContainerEl.innerHTML = markupToggleLight
+        mobileToggleContainerEl.innerHTML = markupMobileToggleLight
    }
     
    toggleElementsColor()

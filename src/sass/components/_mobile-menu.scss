@@ -99,6 +99,8 @@
 
     &__wrapper {
         margin-top: 248px;
+        display: flex;
+        align-items: baseline;
     }
 
     &__theme-light-btn {
@@ -118,9 +120,26 @@
         stroke: $light-theme-toggle-font-color;
     }
 
-    &__toggle-icon {
+    &__toggle-icon-light {
         width: 40px;
         height: 20px;
+
+        display: block;
+
+        @media screen and (min-width: 768px) {
+            display: none;
+        }
+    }
+
+    &__toggle-icon-dark {
+        width: 40px;
+        height: 20px;
+
+        display: block;
+
+        @media screen and (min-width: 768px) {
+            display: none;
+        }  
     }
 
     &__theme-dark-btn {

@@ -185,7 +185,7 @@
         }
     }
 
-    &__toggle-icon {
+    &__toggle-icon-light {
         width: 40px;
         height: 20px;
 
@@ -194,6 +194,17 @@
         @media screen and (min-width: 768px) {
             display: block;
         }
+    }
+
+    &__toggle-icon-dark {
+        width: 40px;
+        height: 20px;
+
+        display: none;
+
+        @media screen and (min-width: 768px) {
+            display: block;
+        }  
     }
 
     &__theme-text-light {
