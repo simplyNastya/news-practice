@@ -1,13 +1,9 @@
 const switchLight = document.querySelector('#switch-light')
-const switchDark = document.querySelector('#switch-dark')  
-const headerInputEl = document.querySelector('.header__search-form-input')
-const formEl = document.querySelector('.header__search-form')
+const switchDark = document.querySelector('#switch-dark')
 const headerBottomBorderEl = document.querySelector('.header__section')
 const burgerMenuEl = document.querySelector('.header__burger-menu-icon')
 const themeLightTextEl = document.querySelector('.header__theme-text-light')
 const themeDarkTextEl = document.querySelector('.header__theme-text-dark')
-const desktopText = document.querySelector('.desktop-text')
-const calendarInput = document.querySelector('.calender__input')
 
 // function to set a given theme/color-scheme
 function setTheme(themeName) {
@@ -19,21 +15,13 @@ function toggleInputTheme() {
     const theme = localStorage.getItem('theme')
 
     if (theme === 'theme-dark') {
-        headerInputEl.classList.add('theme-dark')
-        formEl.classList.add('theme-dark')
         headerBottomBorderEl.classList.add('theme-dark')
         burgerMenuEl.classList.add('theme-dark')
-        headerInputEl.classList.remove('theme-light')
-        formEl.classList.remove('theme-light')
         headerBottomBorderEl.classList.remove('theme-light')
         burgerMenuEl.classList.remove('theme-light')
     } else if (theme === 'theme-light') {
-        headerInputEl.classList.add('theme-light')
-        formEl.classList.add('theme-light')
         headerBottomBorderEl.classList.add('theme-light')
         burgerMenuEl.classList.add('theme-light')
-        headerInputEl.classList.remove('theme-dark')
-        formEl.classList.remove('theme-dark')
         headerBottomBorderEl.classList.remove('theme-dark')
         burgerMenuEl.classList.remove('theme-dark')
     }
@@ -44,16 +32,12 @@ function toggleThemeLight() {
     setTheme('theme-light')
     themeDarkTextEl.style.color = "#111321"
     themeLightTextEl.style.color = "#4440F6"
-    desktopText.style.color = "#111321"
-    calendarInput.style.borderColor = "#111321"
 }
 
 function toggleThemeDark() {
     setTheme('theme-dark')
     themeDarkTextEl.style.color = "#4440F6"
     themeLightTextEl.style.color = "#ffffff"
-    desktopText.style.color = "#ffffff"
-    calendarInput.style.borderColor = "#ffffff"
 }
 
 switchLight.addEventListener('click', toggleThemeLight)
@@ -68,14 +52,10 @@ function immediateInvoke() {
        setTheme('theme-dark')
         themeDarkTextEl.style.color = "#4440F6"
         themeLightTextEl.style.color = "#ffffff"
-        desktopText.style.color = "#ffffff"
-        calendarInput.style.borderColor = "#ffffff"
    } else {
         setTheme('theme-light')
         themeDarkTextEl.style.color = "#111321"
         themeLightTextEl.style.color = "#4440F6"
-        desktopText.style.color = "#111321"
-        calendarInput.style.borderColor = "#111321"
    }
     
    toggleInputTheme()
