@@ -8,7 +8,7 @@ body {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
 
-    color: $light-theme-primary-font-color;
+    // color: $light-theme-primary-font-color;
 
     overflow-y: scroll;
     scroll-behavior: smooth;
@@ -20,6 +20,6 @@ body {
 }
 
 .theme-dark {
-    color: $dark-theme-primary-font-color;
+    color: white;
     background-color: $dark-theme-bgd-color;
 }

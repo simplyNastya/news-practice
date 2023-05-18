@@ -61,13 +61,13 @@ function createMarkupNewsCards(array) {
           </svg>
         </p>
         </div>
-        <button type="button" class="news__btn theme-light">
+        <button type="button" class="news__btn ">
           Add to favorite
           </button>
-          <svg class="news__btn-icon-add theme-light">
+          <svg class="news__btn-icon-add ">
             <use href="${svg}#icon-heart"></use>
           </svg>
-          <svg class="news__btn-icon-remove theme-light">
+          <svg class="news__btn-icon-remove ">
             <use href="${svg}#icon-heart"></use>
           </svg>
         <p class="news__category">${item.section_name}</p>
@@ -114,7 +114,7 @@ function appendMarkup(array) {
 }
 
 function createMarkupIfEmpty() {
-    const markup = `<h2 class="news__title-if-empty theme-light">We haven’t found news from this category</h2><img src="${imgOps}" alt="Ooooops" class="news__img-if-empty theme-light"/>`
+    const markup = `<h2 class="news__title-if-empty ">We haven’t found news from this category</h2><img src="${imgOps}" alt="Ooooops" class="news__img-if-empty "/>`
     containerNewsEl.innerHTML = markup;
 }
 

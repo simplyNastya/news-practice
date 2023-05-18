@@ -50,7 +50,7 @@
         padding-left: 13px;
 
         color: $accent-color;
-        background-color: transparent;
+        background-color: $white-color;
         border: 1px solid #4440F7;
         border-radius: 20px;
         text-align: center;
@@ -126,6 +126,7 @@
         line-height: calc(21 / 12);
         letter-spacing: 0.02em;
 
+        background-color: transparent;
         border: 1px solid $light-theme-primary-font-color;
         border-radius: 20px;
         outline: none;
@@ -246,7 +247,7 @@
         padding-left: 24px;
 
         color: $accent-color;
-        background-color: transparent;
+        background-color: $white-color;
         border: 1px solid #4440F7;
         border-radius: 20px;
         text-align: center;
@@ -278,7 +279,7 @@
         padding-left: 24.5px;
 
         color: $accent-color;
-        background-color: transparent;
+        background-color: $white-color;
         border: 1px solid #4440F7;
         border-radius: 20px;
         text-align: center;
@@ -351,7 +352,7 @@
         padding-left: 24px;
 
         color: $accent-color;
-        background-color: transparent;
+        background-color: $white-color;
         border: 1px solid #4440F7;
         border-radius: 20px;
         text-align: center;

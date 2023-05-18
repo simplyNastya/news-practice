@@ -154,3 +154,13 @@
 .invisible {
     display: none;
 }
+
+.theme-light {
+    color: $light-theme-primary-font-color;
+    background-color: $light-theme-bgd-color;
+}
+
+.theme-dark {
+    color: white;
+    background-color: $dark-theme-bgd-color;
+}

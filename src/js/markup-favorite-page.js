@@ -15,21 +15,21 @@ function createMarkupFavoriteNews() {
   }
 
       return favoriteNewsArray.map(({uri, src, alt, title, subtitle, date, href, category}) => {
-            return `<li id="${uri}" class="favorite__item theme-light">
+            return `<li id="${uri}" class="favorite__item ">
       <img
         src="${src}"
         alt="${alt}"
-        class="favorite__img theme-light"
+        class="favorite__img "
       />
-      <h2 class="favorite__title theme-light">
+      <h2 class="favorite__title ">
         ${title}
       </h2>
-      <h3 class="favorite__subtitle theme-light">
+      <h3 class="favorite__subtitle ">
         ${subtitle}
       </h3>
-      <div class="favorite__date-link-wrapper theme-light">
-        <p class="favorite__date theme-light">${date}</p>
-        <a href="${href}" target="_blank" rel="noopener noreferrer" class="favorite__link theme-light">Read more</a>
+      <div class="favorite__date-link-wrapper ">
+        <p class="favorite__date ">${date}</p>
+        <a href="${href}" target="_blank" rel="noopener noreferrer" class="favorite__link ">Read more</a>
         <p class="favorite__already-read">
               Already read
               <svg class="favorite__already-read-icon">
@@ -37,13 +37,13 @@ function createMarkupFavoriteNews() {
               </svg>
             </p>
       </div>
-      <button type="button" class="favorite__btn theme-light">
+      <button type="button" class="favorite__btn ">
         Remove from favorite
-        <svg class="favorite__btn-icon theme-light">
+        <svg class="favorite__btn-icon ">
           <use href="${svg}#icon-heart"></use>
         </svg>
       </button>
-      <p class="favorite__category theme-light">${category}</p>
+      <p class="favorite__category ">${category}</p>
       </li>`
         })
             .join('')

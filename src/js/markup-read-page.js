@@ -17,57 +17,57 @@ function createMarkupAlreadyReadNews() {
   }, []);
 
   const markupDates = uniqueDates.map((date) => {
-    return `<button class="read__dropdown-content-admin-btn theme-light">${date}</button>`;
+    return `<button class="read__dropdown-content-admin-btn ">${date}</button>`;
   }).join('');
 
   const markupNews = alreadyReadArray.map(({ uri, src, alt, title, subtitle, date, href, category, dateOfRead }) => {
             return `<li
-                class="read__dropdown-content-item theme-light"
+                class="read__dropdown-content-item "
                 id="${uri}"
                 data-date="${dateOfRead}"
               >
                 <img
                   src="${src}"
                   alt="${alt}"
-                  class="read__dropdown-content-img theme-light"
+                  class="read__dropdown-content-img "
                 />
-                <h2 class="read__dropdown-content-title theme-light">
+                <h2 class="read__dropdown-content-title ">
                   ${title}
                 </h2>
-                <h3 class="read__dropdown-content-subtitle theme-light">
+                <h3 class="read__dropdown-content-subtitle ">
                   ${subtitle}
                 </h3>
                 <div
-                  class="read__dropdown-content-date-link-wrapper theme-light"
+                  class="read__dropdown-content-date-link-wrapper "
                 >
-                  <p class="read__dropdown-content-date theme-light">
+                  <p class="read__dropdown-content-date ">
                     ${date}
                   </p>
                   <a
                     href="${href}"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="read__dropdown-content-link theme-light"
+                    class="read__dropdown-content-link "
                     >Read more</a
                   >
                 </div>
                 <button
                   type="button"
-                  class="read__dropdown-content-btn theme-light"
+                  class="read__dropdown-content-btn "
                 >
                   Add to favorite
                 </button>
                 <svg
-                    class="read__dropdown-content-btn-icon-add theme-light"
+                    class="read__dropdown-content-btn-icon-add "
                   >
                     <use href="${svg}#icon-heart"></use>
                   </svg>
                   <svg
-                    class="read__dropdown-content-btn-icon-remove theme-light"
+                    class="read__dropdown-content-btn-icon-remove "
                   >
                     <use href="${svg}#icon-heart"></use>
                   </svg>
-                <p class="read__dropdown-content-category theme-light">
+                <p class="read__dropdown-content-category ">
                   ${category}
                 </p>
                 <p class="read__dropdown-content-already-read">

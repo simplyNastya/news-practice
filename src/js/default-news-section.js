@@ -32,21 +32,21 @@ function createMarkupNewsCards(array) {
         let formattedDate = Array.from(formatDate)
         formattedDate = formattedDate[8] + formattedDate[9] + formattedDate[7] + formattedDate[5] + formattedDate[6] + formattedDate[4] + formattedDate[0] + formattedDate[1] + formattedDate[2] + formattedDate[3]
 
-        return `<li class="news__item theme-light" id="${item.uri}">
+        return `<li class="news__item " id="${item.uri}">
         <img
           src="${imageBase}"
           alt="${imageCaption}"
-          class="news__img theme-light"
+          class="news__img "
         />
-        <h2 class="news__title theme-light">
+        <h2 class="news__title ">
           ${item.title}
         </h2>
-        <h3 class="news__subtitle theme-light">
+        <h3 class="news__subtitle ">
           ${item.abstract}
         </h3>
-        <div class="news__date-link-wrapper theme-light">
-          <p class="news__date theme-light">${formattedDate}</p>
-          <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="news__link theme-light">Read more</a>
+        <div class="news__date-link-wrapper ">
+          <p class="news__date ">${formattedDate}</p>
+          <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="news__link ">Read more</a>
           <p class="news__already-read">
           Already read
           <svg class="news__already-read-icon">
@@ -54,16 +54,16 @@ function createMarkupNewsCards(array) {
           </svg>
         </p>
         </div>
-        <button type="button" class="news__btn theme-light">
+        <button type="button" class="news__btn ">
           Add to favorite
           </button>
-          <svg class="news__btn-icon-add theme-light">
+          <svg class="news__btn-icon-add ">
             <use href="${svg}#icon-heart"></use>
           </svg>
-          <svg class="news__btn-icon-remove theme-light">
+          <svg class="news__btn-icon-remove ">
             <use href="${svg}#icon-heart"></use>
           </svg>
-        <p class="news__category theme-light">${item.section}</p>
+        <p class="news__category ">${item.section}</p>
       </li>`
     }).join('')
 }
