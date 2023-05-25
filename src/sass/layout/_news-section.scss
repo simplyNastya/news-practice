@@ -189,11 +189,15 @@
         height: 16px;
 
         position: absolute;
-        bottom: 305px;
+        bottom: 255px;
         right: 24px;
 
         fill: $accent-color;
         background-color: transparent;
+
+        @media screen and (min-width: 768px) {
+            bottom: 305px;
+        }
     }
 
     &__category {
