@@ -72,7 +72,7 @@
         letter-spacing: 0.02em;
         text-align: start;
 
-        color: $light-theme-primary-font-color;
+        color: inherit;
         background-color: transparent;
         border: none;
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -116,9 +116,6 @@
         z-index: 200;
         // max-height: 380px;
         overflow: scroll;
-
-        margin-right: auto;
-        margin-left: auto;
 
         padding-top: 14px;
         padding-left: 14px;
@@ -296,11 +293,15 @@
         height: 16px;
 
         position: absolute;
-        bottom: 305px;
+        bottom: 255px;
         right: 20px;
 
         fill: transparent;
         background-color: transparent;
+
+        @media screen and (min-width: 768px) {
+            bottom: 305px;
+        }
     }
 
     &__dropdown-content-btn-icon-remove {
@@ -309,11 +310,15 @@
         height: 16px;
 
         position: absolute;
-        bottom: 305px;
+        bottom: 255px;
         right: 24px;
 
         fill: $accent-color;
         background-color: transparent;
+
+        @media screen and (min-width: 768px) {
+            bottom: 305px;
+        }
     }
 
     &__dropdown-content-category {
@@ -365,6 +370,7 @@
 
 .visible-content {
     display: block;
+    background-color: transparent;
 }
 
 .invisible-content {
