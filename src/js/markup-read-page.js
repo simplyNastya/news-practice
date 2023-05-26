@@ -1,14 +1,24 @@
 import localStorageAPI from './storage'
-// import imgOps from '../images/desctop/news-main-img.png'
+import imgOps from '../images/desctop/news-main-img.png'
 import svg from '../images/symbol-defs.svg'
 
 const alreadyReadListEl = document.querySelector(".read__dropdown-content-list")
 const adminBtn = document.querySelector('.read__dropdown-content-admin-btn')
 const adminBtnWrapper = document.querySelector('.read__dropdown-wrapper')
 
+const readSectionContainerEl = document.querySelector('.read__section-container')
+
 const alreadyReadArray = localStorageAPI.load("already-read-news") || []
 
 function createMarkupAlreadyReadNews() {
+
+  if (!alreadyReadArray.length) {
+    return (readSectionContainerEl.innerHTML = `<div class="read__noItem-wrapper">
+    <h2 class="read__noItem-title">This page is empty yet</h2>
+    <img src="${imgOps}" alt="Ooooops" class="read__noItem-img"/>
+    </div>`)
+  }
+
   const uniqueDates = alreadyReadArray.reduce((dates, { dateOfRead }) => {
     if (!dates.includes(dateOfRead)) {
       dates.push(dateOfRead);
