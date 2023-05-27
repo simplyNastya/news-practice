@@ -48,7 +48,11 @@
         }
     }
 
-    // &__section-container {}
+    &__section-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
 
     &__dropdown-wrapper {
         position: relative;
