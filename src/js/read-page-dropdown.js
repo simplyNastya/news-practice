@@ -1,7 +1,4 @@
 const dateBtnEls = document.querySelectorAll('.read__dropdown-content-admin-btn')
-// const dropdownContentWrapperEl = document.querySelector('.read__dropdown-content-wrapper')
-// const dropdownrrowDownIconEl = document.querySelector('.read__btn-icon-down')
-// const dropdownArrowUpIconEl = document.querySelector('.read__btn-icon-up')
 
 // Клик на кнопку откривает список
 function showAlreadyReadNewsList(e) {
