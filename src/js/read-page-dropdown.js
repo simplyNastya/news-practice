@@ -1,11 +1,11 @@
-const dateBtnEls = document.querySelectorAll('.read__dropdown-content-admin-btn')
+const dateBtnEls = document.querySelectorAll('.read__date-title')
 
 // Клик на кнопку откривает список
 function showAlreadyReadNewsList(e) {
     const currentBtn = e.currentTarget
     const currentWrapper = currentBtn.nextElementSibling
-    const currentDropdownDownIcon = currentBtn.querySelector('.read__btn-icon-down')
-    const currentDropdownUpIcon = currentBtn.querySelector('.read__btn-icon-up')
+    const currentDropdownDownIcon = currentBtn.querySelector('.read__date-icon-down')
+    const currentDropdownUpIcon = currentBtn.querySelector('.read__date-icon-up')
 
     currentWrapper.classList.toggle('visible-content')
     currentDropdownDownIcon.classList.toggle('invisible-content')
