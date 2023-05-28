@@ -42,9 +42,6 @@ export function addRemoveLocalStorage(e) {
     }
 }
 
-// alreadyReadListEl.addEventListener("click", addRemoveLocalStorage)
-
-
 alreadyReadListEls.forEach(alreadyReadListEl => {
   alreadyReadListEl.addEventListener('click', addRemoveLocalStorage)
 })
