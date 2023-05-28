@@ -75,6 +75,8 @@
         background-color: transparent;
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 
+        cursor: pointer;
+
         @media screen and (min-width: 768px) {
             width: 736px;
         }
@@ -91,6 +93,11 @@
         fill: $light-theme-primary-font-color;
         stroke: $light-theme-primary-font-color;
 
+        .read__date-title:hover & {
+            fill: $accent-color;
+            stroke: $accent-color;
+        }
+
         @media screen and(min-width: 1280px) {
             height: 15px;
         }
@@ -103,6 +110,12 @@
         
         fill: $light-theme-primary-font-color;
         stroke: $light-theme-primary-font-color;
+
+        .read__date-title:hover & {
+            fill: $accent-color;
+            stroke: $accent-color;
+        }
+
         @media screen and(min-width: 1280px) {
             height: 15px;
         }
