@@ -11,6 +11,7 @@ function showAlreadyReadNewsList(e) {
     currentDropdownDownIcon.classList.toggle('invisible-content')
     currentDropdownUpIcon.classList.toggle('visible-content')
 }
+
 dateBtnEls.forEach(dateBtnEl => {
   dateBtnEl.addEventListener('click', showAlreadyReadNewsList)
 })
