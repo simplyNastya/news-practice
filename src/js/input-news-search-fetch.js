@@ -15,7 +15,7 @@ let keyword
 let page = 1;
 
 async function makeFetch(keyword) {
-    const response = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${keyword}&page=${page}&sort=newest&api-key=${API_KEY}`)
+  const response = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${keyword}&page=${page}&sort=newest&api-key=${API_KEY}`)
     const data = await response.data
 
     if (data.response.docs.length === 0) {

@@ -4,42 +4,31 @@ import svg from '../images/symbol-defs.svg'
 import noImage from '../images/desctop/no-image-available.png'
 import {unshowCategoriesList, unshowOthersList} from './open-close-categories-news-btn'
 
-const categoriesBtnEl = document.querySelector('.dropdown__content-admin-btn')
-const categoriesDropdownContentWrapperEl = document.querySelector('.dropdown__content-wrapper')
-const categoriesArrowDownIconEl = document.querySelector('.dropdown__content-admin-btn-icon-down')
-const categoriesArrowUpIconEl = document.querySelector('.dropdown__content-admin-btn-icon-up')
-
-const othersBtnEl = document.querySelector('.dropdown-tablet__content-admin-btn')
-const othersDropdownContentWrapperEl = document.querySelector('.dropdown-tablet__content-wrapper')
-const othersArrowDownIconEl = document.querySelector('.dropdown-tablet__content-admin-btn-icon-down')
-const othersArrowUpIconEl = document.querySelector('.dropdown-tablet__content-admin-btn-icon-up')
-
 const filterCategoriesListEl = document.querySelector('.filter-tablet__list')
 const categoriesDropdownListEl = document.querySelector('.dropdown__content-list')
 const othersDropdownListEl = document.querySelector('.dropdown-tablet__content-list')
 
 
-// const prevBtnEl = document.querySelector('.pagination__prevBtn')
-// const nextBtnEl = document.querySelector('.pagination__nextBtn')
-// const btn1El = document.getElementById('btn-1')
-// const btn2El = document.getElementById('btn-2')
-// const btn3El = document.getElementById('btn-3')
-// const btn4El = document.getElementById('btn-4')
-// const btn5El = document.getElementById('btn-5')
-// const btn6El = document.getElementById('btn-6')
+const prevBtnEl = document.querySelector('.pagination__prevBtn')
+const nextBtnEl = document.querySelector('.pagination__nextBtn')
+const btn1El = document.getElementById('btn-1')
+const btn2El = document.getElementById('btn-2')
+const btn3El = document.getElementById('btn-3')
+const btn4El = document.getElementById('btn-4')
+const btn5El = document.getElementById('btn-5')
+const btn6El = document.getElementById('btn-6')
 
 
 
 const newsListEl = document.querySelector('.news__list')
 
-// const loadMoreBtnEl = document.querySelector('.loadMore')
-
 const API_KEY = 'B0nM5YVwVGPOQpaqXoXzd3AxL5Kpg75H'
 let keyword
 let data
-var numAllArticle
-let page = 0
-
+let numAllArticle
+let page = 1
+let offset = 0
+let limit = 8
 
 // Получаем ключевое слово для запроса
 function getFetchValue(e) {
@@ -58,9 +47,8 @@ othersDropdownListEl.addEventListener('click', getFetchValue)
 
 // Делаем функцию для получения результата запроса
 async function makeFetch(keyword, page) {
-  const response = await axios.get(`https://api.nytimes.com/svc/news/v3/content/all/${keyword}.json?limit=8&page=${page}&sort=newest&api-key=${API_KEY}`)
+  const response = await axios.get(`https://api.nytimes.com/svc/news/v3/content/all/${keyword}.json?limit=${limit}&offset=${offset}&page=${page}&sort=newest&api-key=${API_KEY}`)
   data = await response.data
-  console.log(data)
   numAllArticle = data.num_results
   return data
 }
@@ -178,23 +166,56 @@ filterCategoriesListEl.addEventListener('click', handleFetch)
 
 
 
-// nextBtnEl.addEventListener('click', () => {
-//   if (numAllArticle < 8) {
-//     return
-//   }
-//   page += 1
-//   numAllArticle -= 8
-//   console.log(page)
-//   console.log(numAllArticle)
-//   handleFetch()
-// })
+nextBtnEl.addEventListener('click', () => {
+  if (numAllArticle < 8) {
+    return
+  }
+  page += 1
+  offset += limit
+  handleFetch()
+})
 
-// prevBtnEl.addEventListener('click', () => {
-//   if (page <= 1) {
-//     return
-//   }
-//   page -= 1
-//   numAllArticle += 8
-//   console.log(page)
-//   console.log(numAllArticle)
-// })
+prevBtnEl.addEventListener('click', () => {
+  if (page <= 1) {
+    return
+  }
+  page -= 1
+  offset -= limit
+  handleFetch()
+})
+
+btn1El.addEventListener('click', () => {
+  page = 1
+  offset = 0
+  handleFetch()
+})
+
+btn2El.addEventListener('click', () => {
+  page = 2
+  offset = 8
+  handleFetch()
+})
+
+btn3El.addEventListener('click', () => {
+  page = 3
+  offset = 16
+  handleFetch()
+})
+
+btn4El.addEventListener('click', () => {
+  page = 4
+  offset = 24
+  handleFetch()
+})
+
+btn5El.addEventListener('click', () => {
+  page = 5
+  offset = 32
+  handleFetch()
+})
+
+btn6El.addEventListener('click', () => {
+  page = 6
+  offset = 40
+  handleFetch()
+})
