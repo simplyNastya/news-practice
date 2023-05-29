@@ -12,7 +12,6 @@ let page = 0
 async function makeFetch() {
   const response = await axios.get(`https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=${API_KEY}`)
   data = await response.data
-  // console.log(data)
 }
 
 function createMarkupNewsCards(array) {    

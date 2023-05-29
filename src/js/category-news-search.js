@@ -7,7 +7,7 @@ import {unshowCategoriesList, unshowOthersList} from './open-close-categories-ne
 const filterCategoriesListEl = document.querySelector('.filter-tablet__list')
 const categoriesDropdownListEl = document.querySelector('.dropdown__content-list')
 const othersDropdownListEl = document.querySelector('.dropdown-tablet__content-list')
-
+const newsListEl = document.querySelector('.news__list')
 
 const prevBtnEl = document.querySelector('.pagination__prevBtn')
 const nextBtnEl = document.querySelector('.pagination__nextBtn')
@@ -18,9 +18,6 @@ const btn4El = document.getElementById('btn-4')
 const btn5El = document.getElementById('btn-5')
 const btn6El = document.getElementById('btn-6')
 
-
-
-const newsListEl = document.querySelector('.news__list')
 
 const API_KEY = 'B0nM5YVwVGPOQpaqXoXzd3AxL5Kpg75H'
 let keyword
@@ -108,12 +105,12 @@ function createMarkupNewsCards(array) {
           </svg>
       <p class="news__category ">${item.section}</p>
       </li>`
-    }).join('')
+  }).join('')
 }
 
 // Функция, которая вставляет отрисованую разметку на страницу
 function appendMarkup(array) {
-    const markup = createMarkupNewsCards(array)
+  const markup = createMarkupNewsCards(array)
   newsListEl.innerHTML = markup
   
   array.map(item => {
@@ -126,27 +123,27 @@ function appendMarkup(array) {
           favoriteBtn.classList.add('fav')
           favoriteBtn.textContent = 'Remove from favorite'
           favoriteBtn.style.width = '168px'
-    }
-    }
+        }
+      }
     })
     
     const alreadyReadNews = localStorageAPI.load("already-read-news") || []
-        alreadyReadNews.forEach(news => {
+    alreadyReadNews.forEach(news => {
       if (news.uri === item.uri) {
         const newsItem = document.getElementById(news.uri)
         if (newsItem) {
           const readLink = newsItem.querySelector('.news__link')
           readLink.classList.add('read')
           newsItem.style.opacity = '0.8'
-    }
-    }
+        }
+      }
     })
   })
 }
 
 // Делаем запрос на бекенд по ключевому слову, которое получили с категории
 function handleFetch() {
-  makeFetch(keyword, page)
+  makeFetch(keyword)
   .then(data => {
     if (keyword === '') {
       return

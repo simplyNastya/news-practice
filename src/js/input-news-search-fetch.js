@@ -7,25 +7,37 @@ import noImage from '../images/desctop/no-image-available.png'
 const formInputEl = document.querySelector('.header__search-form')
 const newsListEl = document.querySelector('.news__list')
 const containerNewsEl = document.querySelector('.news__container')
-// const containerWeather = document.querySelector('.news__item-weather-tablet')
+
+const prevBtnEls = document.querySelector('.pagination__prevBtn')
+const nextBtnEls = document.querySelector('.pagination__nextBtn')
+const btn1El = document.getElementById('btn-1')
+const btn2El = document.getElementById('btn-2')
+const btn3El = document.getElementById('btn-3')
+const btn4El = document.getElementById('btn-4')
+const btn5El = document.getElementById('btn-5')
+const btn6El = document.getElementById('btn-6')
 
 const API_KEY = 'B0nM5YVwVGPOQpaqXoXzd3AxL5Kpg75H'
 
 let keyword
-let page = 1;
+let numAllArticle
+let page = 1
+let offset = 0
 
 async function makeFetch(keyword) {
-  const response = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${keyword}&page=${page}&sort=newest&api-key=${API_KEY}`)
-    const data = await response.data
+  const response = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${keyword}&offset=${offset}&page=${page}&sort=newest&api-key=${API_KEY}`)
+  const data = await response.data
+  numAllArticle = data.response.meta.hits
 
-    if (data.response.docs.length === 0) {
-         createMarkupIfEmpty()
-    }
-    return data
+  if (data.response.docs.length === 0) {
+    createMarkupIfEmpty()
+  }
+
+  return data
 }
 
 function createMarkupNewsCards(array) {    
-    return array.slice(0, 8).map(item => {
+    return array.map(item => {
         let imageStart
         let imageBase
         if (item.multimedia.length > 0) {
@@ -72,16 +84,11 @@ function createMarkupNewsCards(array) {
           </svg>
         <p class="news__category">${item.section_name}</p>
       </li>`
-    }).join('')
+  }).join('')
 }
 
-
-// function createMarkupWeather() {
-//     return '<div class="weather__container-markup"></div>'
-// }
-
 function appendMarkup(array) {
-    const markup = createMarkupNewsCards(array)
+  const markup = createMarkupNewsCards(array)
   newsListEl.innerHTML = markup
   
   array.map(item => {
@@ -94,46 +101,62 @@ function appendMarkup(array) {
           favoriteBtn.classList.add('fav')
           favoriteBtn.textContent = 'Remove from favorite'
           favoriteBtn.style.width = '168px'
-    }
-    }
+        }
+      }
     })
     
     const alreadyReadNews = localStorageAPI.load("already-read-news") || []
-        alreadyReadNews.forEach(news => {
+    alreadyReadNews.forEach(news => {
       if (news.uri === item.uri) {
         const newsItem = document.getElementById(news.uri)
         if (newsItem) {
           const readLink = newsItem.querySelector('.news__link')
           readLink.classList.add('read')
           newsItem.style.opacity = '0.8'
-    }
-    }
+        }
+      }
     })
   })
-    // containerWeather.insertAdjacentHTML('afterend', createMarkupWeather())
 }
 
 function createMarkupIfEmpty() {
-    const markup = `<h2 class="news__title-if-empty ">We haven’t found news from this category</h2><img src="${imgOps}" alt="Ooooops" class="news__img-if-empty "/>`
-    containerNewsEl.innerHTML = markup;
+  const markup = `<h2 class="news__title-if-empty ">We haven’t found news from this category</h2><img src="${imgOps}" alt="Ooooops" class="news__img-if-empty "/>`
+  containerNewsEl.innerHTML = markup;
 }
 
 function handleSearchQuery(e) {
-    e.preventDefault()
+  e.preventDefault()
 
-    keyword = e.currentTarget.elements.searchQuery.value
+  keyword = e.currentTarget.elements.searchQuery.value
 
-    makeFetch(keyword)
-        .then(data => {
-            if (keyword === '') {
-                return
-            }
-            appendMarkup(data.response.docs)
-            page += 1;
-        })
-        .catch((error) => {
-            console.log(error)
-        })
+  makeFetch(keyword)
+  .then(data => {
+    if (keyword === '') {
+      return
+    }
+    appendMarkup(data.response.docs)
+  })
+  .catch((error) => {
+    console.log(error)
+  })
 }
 
 formInputEl.addEventListener('submit', handleSearchQuery)
+
+nextBtnEls.addEventListener('click', () => {
+  if (numAllArticle < 8) {
+    return
+  }
+  page += 1
+  offset += 8
+  handleSearchQuery()
+})
+
+prevBtnEls.addEventListener('click', () => {
+  if (page <= 1) {
+    return
+  }
+  page -= 1
+  offset -= 8
+  handleSearchQuery()
+})
