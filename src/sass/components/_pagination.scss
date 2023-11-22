@@ -11,52 +11,17 @@
         justify-content: center;
         align-items: center;
 
-        width: 72px;
-        height: 28px;
+        width: 50px;
+        height: 50px;
 
         border: 1px solid $accent-color;
-        border-radius: 2px;
+        border-radius: 50%;
 
-        &:hover,
-        &:focus {
+        &:hover:not([disabled]){
             color: $white-color;
             background-color: $accent-color;
-        }
 
-        @media screen and(min-width: 768px) {
-            width: 82px;
-            height: 31px;
-        }
-    }
-
-    &__btnList {
-        list-style: none;
-        padding-left: 0;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
-    }
-
-    &__btnItem {}
-
-    &__btn {
-        width: 28px;
-        height: 28px;
-
-        border: 1px solid $accent-color;
-        border-radius: 2px;
-
-        &:hover,
-        &:focus {
-            color: $white-color;
-            background-color: $accent-color;
-        }
-
-        @media screen and(min-width: 768px) {
-            width: 33px;
-            height: 31px;
+            transition: all 0.5s;
         }
     }
 
@@ -65,21 +30,19 @@
         justify-content: center;
         align-items: center;
         
-        width: 72px;
-        height: 28px;
+        width: 50px;
+        height: 50px;
+;
 
         border: 1px solid $accent-color;
-        border-radius: 2px;
+        border-radius: 50%;
 
         &:hover,
         &:focus {
             color: $white-color;
             background-color: $accent-color;
-        }
 
-        @media screen and(min-width: 768px) {
-            width: 82px;
-            height: 31px;
+            transition: all 0.5s;
         }
     }
 }

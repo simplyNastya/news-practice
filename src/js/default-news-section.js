@@ -7,7 +7,7 @@ const newsListEl = document.querySelector('.news__list')
 
 const API_KEY = 'B0nM5YVwVGPOQpaqXoXzd3AxL5Kpg75H'
 let data
-let page = 0
+let page = 1
 
 async function makeFetch() {
   const response = await axios.get(`https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=${API_KEY}`)

@@ -8,14 +8,8 @@ const formInputEl = document.querySelector('.header__search-form')
 const newsListEl = document.querySelector('.news__list')
 const containerNewsEl = document.querySelector('.news__container')
 
-const prevBtnEls = document.querySelector('.pagination__prevBtn')
-const nextBtnEls = document.querySelector('.pagination__nextBtn')
-const btn1El = document.getElementById('btn-1')
-const btn2El = document.getElementById('btn-2')
-const btn3El = document.getElementById('btn-3')
-const btn4El = document.getElementById('btn-4')
-const btn5El = document.getElementById('btn-5')
-const btn6El = document.getElementById('btn-6')
+const prevBtnEl = document.querySelector('.pagination__prevBtn')
+const nextBtnEl = document.querySelector('.pagination__nextBtn')
 
 const API_KEY = 'B0nM5YVwVGPOQpaqXoXzd3AxL5Kpg75H'
 
@@ -23,6 +17,7 @@ let keyword
 let numAllArticle
 let page = 1
 let offset = 0
+let limit = 8
 
 async function makeFetch(keyword) {
   const response = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${keyword}&offset=${offset}&page=${page}&sort=newest&api-key=${API_KEY}`)
@@ -143,20 +138,24 @@ function handleSearchQuery(e) {
 
 formInputEl.addEventListener('submit', handleSearchQuery)
 
-nextBtnEls.addEventListener('click', () => {
-  if (numAllArticle < 8) {
+prevBtnEl.addEventListener('click', () => {
+  if (page <= 1) {
+    prevBtnEl.setAttribute('disabled', '')
     return
   }
-  page += 1
-  offset += 8
+  prevBtnEl.removeAttribute('disabled', '')
+  page -= 1
+  offset -= limit
   handleSearchQuery()
 })
 
-prevBtnEls.addEventListener('click', () => {
-  if (page <= 1) {
+nextBtnEl.addEventListener('click', () => {
+  if (numAllArticle < 8) {
+    nextBtnEl.setAttribute('disabled', '')
     return
   }
-  page -= 1
-  offset -= 8
+  nextBtnEl.removeAttribute('disabled', '')
+  page += 1
+  offset += limit
   handleSearchQuery()
 })

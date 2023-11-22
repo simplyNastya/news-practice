@@ -8,17 +8,9 @@ const filterCategoriesListEl = document.querySelector('.filter-tablet__list')
 const categoriesDropdownListEl = document.querySelector('.dropdown__content-list')
 const othersDropdownListEl = document.querySelector('.dropdown-tablet__content-list')
 const newsListEl = document.querySelector('.news__list')
-const paginationBtnListEl = document.querySelector('.pagination__btnList')
 
 const prevBtnEl = document.querySelector('.pagination__prevBtn')
 const nextBtnEl = document.querySelector('.pagination__nextBtn')
-// const btn1El = document.getElementById('btn-1')
-// const btn2El = document.getElementById('btn-2')
-// const btn3El = document.getElementById('btn-3')
-// const btn4El = document.getElementById('btn-4')
-// const btn5El = document.getElementById('btn-5')
-// const btn6El = document.getElementById('btn-6')
-
 
 const API_KEY = 'B0nM5YVwVGPOQpaqXoXzd3AxL5Kpg75H'
 let keyword
@@ -150,7 +142,6 @@ function handleFetch() {
       return
     }
     appendMarkup(data.results)
-    appendPaginationMarkup()
     unshowCategoriesList()
     unshowOthersList()
   })
@@ -162,74 +153,24 @@ categoriesDropdownListEl.addEventListener('click', handleFetch)
 othersDropdownListEl.addEventListener('click', handleFetch)
 filterCategoriesListEl.addEventListener('click', handleFetch)
 
-
-
-nextBtnEl.addEventListener('click', () => {
-  if (numAllArticle < 8) {
-    return
-  }
-  page += 1
-  offset += limit
-  handleFetch()
-
-createPaginationMarkup()
-})
-
 prevBtnEl.addEventListener('click', () => {
   if (page <= 1) {
+    prevBtnEl.setAttribute('disabled')
     return
   }
+  prevBtnEl.removeAttribute('disabled')
   page -= 1
   offset -= limit
   handleFetch()
 })
 
-function createPaginationMarkup() {
-  let pagesAmountArr = Array.from(Array(Math.ceil(numAllArticle / 8)).keys())
-  return pagesAmountArr.map(number => {
-    return `<li class="pagination__btnItem">
-      <button type="button" class="pagination__btn" id="btn-${number}">${number}</button>
-    </li>`
-  }).join('') 
-}
-
-function appendPaginationMarkup() {
-  const markup = createPaginationMarkup()
-  paginationBtnListEl.innerHTML = markup
-}
-
-// btn1El.addEventListener('click', () => {
-//   page = 1
-//   offset = 0
-//   handleFetch()
-// })
-
-// btn2El.addEventListener('click', () => {
-//   page = 2
-//   offset = 8
-//   handleFetch()
-// })
-
-// btn3El.addEventListener('click', () => {
-//   page = 3
-//   offset = 16
-//   handleFetch()
-// })
-
-// btn4El.addEventListener('click', () => {
-//   page = 4
-//   offset = 24
-//   handleFetch()
-// })
-
-// btn5El.addEventListener('click', () => {
-//   page = 5
-//   offset = 32
-//   handleFetch()
-// })
-
-// btn6El.addEventListener('click', () => {
-//   page = 6
-//   offset = 40
-//   handleFetch()
-// })
+nextBtnEl.addEventListener('click', () => {
+  if (numAllArticle < 8) {
+    nextBtnEl.setAttribute('disabled', '')
+    return
+  }
+  nextBtnEl.removeAttribute('disabled', '')
+  page += 1
+  offset += limit
+  handleFetch()
+})
